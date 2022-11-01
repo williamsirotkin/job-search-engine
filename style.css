@@ -1,0 +1,18 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: black;
+  }
+
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after image containers */
+.row {
+  content: "";
+  clear: both;
+  display: table;
+}
