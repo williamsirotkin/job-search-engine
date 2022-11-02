@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import HelloWorld from './BookmarkCompaniesRow/BookmarkCompaniesRow.js'
+import BookmarkedCompanies from './BookmarkCompaniesRow/BookmarkCompaniesRow.js'
 
 function App() {
   return (
-    <HelloWorld/>
+    <BookmarkedCompanies/>
   );
 }
 
