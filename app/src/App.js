@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import HelloWorld from './BookmarkCompaniesRow/BookmarkCompaniesRow.js'
+import IndustriesGrid from './IndustriesGrid/IndustriesGrid.js'
+
 
 function App() {
   return (
-    <HelloWorld/>
+    <IndustriesGrid/>
   );
 }
 
