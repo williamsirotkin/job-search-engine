@@ -1,0 +1,10 @@
+nav {
+    display: flex;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+}
+
+img {
+    width: 7%;
+}
