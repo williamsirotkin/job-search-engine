@@ -7,6 +7,8 @@ function UniversityElement() {
             <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbhiai2jewv7XGXhDeIbVHNIMQCxw6nVKGQkIWpga-uQO5fKNtXRmrqMMqybf_QB0pHzw&usqp=CAU" alt = "home depot"></img>
             <br></br>
             <button class = "view"> View Jobs </button>
+            <br></br>
+            <button class= "bookmark"> Bookmark </button>
         </div>
     )
 }
