@@ -2,3 +2,22 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.applyStack {
+    text-align: center;
+}
+
+
+.applyStack > img {
+    width: 50%;
+}
+
+.applyStack > .view {
+	background-color:#44c767;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:100%;
+	text-decoration:none;
+    margin-bottom: 1.5%;
+}
