@@ -2,3 +2,31 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.bookmarkStack {
+    text-align: center;
+}
+
+
+.bookmarkStack > img {
+    width: 50%;
+}
+
+.bookmarkStack > .view {
+	background-color:#44c767;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:100%;
+	text-decoration:none;
+    margin-bottom: 1.5%;
+}
+
+.bookmarkStack > .remove {
+    background-color:#cc2c2c;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:100%;
+	text-decoration:none;
+}
