@@ -1,6 +1,7 @@
 .row {
     display: flex;
     justify-content: space-evenly;
+    text-align: center;
 }
 
 .bookmarkStack {
@@ -22,7 +23,7 @@
     margin-bottom: 1.5%;
 }
 
-.bookmarkStack > .remove {
+.remove {
     background-color:#cc2c2c;
 	display:inline-block;
 	color:#ffffff;
