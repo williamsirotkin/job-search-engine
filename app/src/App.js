@@ -10,7 +10,7 @@ function App() {
   return (
   <React.Fragment>
     <NavBar />
-      <IndustriesGrid/>
+    <IndustriesGrid/>
     <BookmarkedCompanies/>
     <UniversityApplyRow/>
     </React.Fragment >
