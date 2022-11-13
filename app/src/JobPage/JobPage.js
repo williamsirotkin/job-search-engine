@@ -15,7 +15,7 @@ function JobComponent() {
 function JobPage() {
     return (
         <div>
-            <button class = "jobReturnToHome"> <Link class = "link" to="/"> Return To Home </Link></button>
+            <button class = "jobReturnToHome"> <Link class = "link" to="/sector"> Go Back </Link></button>
             <div class = "header">
                 <h1> Jobs At The Hope Depot </h1>
             </div>

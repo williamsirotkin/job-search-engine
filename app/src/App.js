@@ -13,14 +13,22 @@ function App() {
     <Router>
       <NavBar/>
       <Routes>
+
       <Route path = "/" element={
           <React.Fragment>
             <IndustriesGrid />
             <BookmarkedCompanies/>
           </React.Fragment>
       }></Route>
-      <Route path = "/jobs" element={<JobPage />}></Route>
-      <Route path = "/sector" element={<SectorComponent/>}></Route>
+
+      <Route path = "/jobs" element={
+        <JobPage />
+      }></Route>
+
+      <Route path = "/sector" element={
+        <SectorComponent/>
+        }></Route>
+        
       </Routes>
     </Router>
   );
