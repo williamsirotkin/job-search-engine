@@ -1,4 +1,4 @@
-nav {
+.navBar {
     display: flex;
     background-color: #000000;
     color: white;
@@ -30,5 +30,9 @@ img {
 	top:1px;
 }
 
+.navBar {
+	margin-left:auto;
+	background-color: #000000;
+}
         
 
