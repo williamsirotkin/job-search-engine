@@ -6,9 +6,8 @@ import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-rou
 function JobElement() {
     return (
         <div class = "applyStack">
-            <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbhiai2jewv7XGXhDeIbVHNIMQCxw6nVKGQkIWpga-uQO5fKNtXRmrqMMqybf_QB0pHzw&usqp=CAU" alt = "home depot"></img>
-            <br></br>
-            <button class = "view"> <Link class = "link" to = "/jobs">View Jobs</Link></button>
+            <h2> The Home Depot </h2>
+            <button class = "view"> <a href ="http://google.com/search?q=jobs"> View Jobs </a></button>
         </div>
     )
 }

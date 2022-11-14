@@ -13,9 +13,8 @@ function BookmarkElement() {
     }
     return (
         <div class = "bookmarkStack">
-            <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbhiai2jewv7XGXhDeIbVHNIMQCxw6nVKGQkIWpga-uQO5fKNtXRmrqMMqybf_QB0pHzw&usqp=CAU" alt = "home depot"></img>
-            <br></br>
-            <button class = "view"> <Link class = "link" to={jobRoute}> View Jobs </Link> </button>
+            <h2> The Home Depot </h2>
+            <button class = "view"> <a href = "https://google.com/search?q=jobs"> View Jobs </a></button>
         </div>
     )
 }
