@@ -11,10 +11,12 @@ function BookmarkElement() {
     } else {
         jobRoute += "/notSignedIn"
     }
+
+    let jobName = "The Home Depot";
     return (
         <div class = "bookmarkStack">
             <h2> The Home Depot </h2>
-            <button class = "view"> <a href = "https://google.com/search?q=jobs"> View Jobs </a></button>
+            <button class = "view"> <a href = {"https://google.com/search?q=jobs+" + jobName}> View Jobs </a></button>
         </div>
     )
 }
