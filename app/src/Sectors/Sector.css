@@ -54,3 +54,13 @@
 .add2 {
 	color: white;
 }
+
+.edit {
+	background-color: rgb(71, 195, 236);
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:100%;
+	text-decoration:none;
+    margin-bottom: 1.5%;
+}

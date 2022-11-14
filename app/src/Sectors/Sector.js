@@ -35,6 +35,8 @@ function SectorComponent() {
                 {elements.map((element, index) => (
                     <div key={index}>
                     {element}
+                    <Link to = "/addCompany/HomeDepot"><button class = "edit">Edit Item </button></Link>
+                    <br></br>
                     <button class = "bookmark" onClick={() => alert("Bookmarked!!")}> Bookmark </button>
                     </div>
                 ))}

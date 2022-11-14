@@ -38,6 +38,7 @@ function Login() {
 
     return (
         <div class = "navBar">
+              <h1 class ="title"> Job Search Engine </h1>
             <div class = "login">
                 {profile ? (
                     <div>
