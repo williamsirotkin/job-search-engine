@@ -15,7 +15,14 @@ function App() {
       <NavBar/>
       <Routes>
 
+
       <Route path = "/" element={
+          <React.Fragment>
+            <IndustriesGrid />
+          </React.Fragment>
+      }></Route>
+
+      <Route path = "/:signedIn" element={
           <React.Fragment>
             <IndustriesGrid />
             <BookmarkedCompanies/>
@@ -26,8 +33,16 @@ function App() {
         <JobPage />
       }></Route>
 
+      <Route path = "/jobs/:signedIn" element={
+        <JobPage />
+      }></Route>
+
       <Route path = "/sector/:sector" element={
-        <SectorComponent/>
+          <SectorComponent/>
+        }></Route>
+
+      <Route path = "/sector/:sector/:signedIn" element={
+          <SectorComponent/>
         }></Route>
         
       </Routes>

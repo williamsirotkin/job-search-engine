@@ -2,19 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import './navbar.css';
+import {BrowserRouter as Router, Routes, Route, Link, useNavigate, Navigate} from "react-router-dom";
 
 function Login() {
+    let navigate = useNavigate()
     const [ profile, setProfile ] = useState([]);
     const clientId = '386932037035-k8v833noqjk7m4auae0t83vnkrqvvg3t.apps.googleusercontent.com';
     useEffect(() => {
         const initClient = () => {
-            gapi.client.init({
+            let auth2 = gapi.auth2.init({
                 clientId: clientId,
                 scope: ''
             });
+            auth2.isSignedIn.listen(signInChanged);
         };
-        gapi.load('client:auth2', initClient);
+        gapi.load('auth2', initClient);
     });
+
+    const signInChanged = () => {
+        console.log("I am logged in")
+        navigate('/signedIn')
+    } 
 
     const onSuccess = (res) => {
         setProfile(res.profileObj);

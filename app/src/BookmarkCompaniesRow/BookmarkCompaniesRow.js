@@ -1,14 +1,21 @@
 import React from 'react';
 import { useState } from 'react';
 import './BookmarkCompaniesRow.css'
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-router-dom";
 
 function BookmarkElement() {
+    let params = useParams();
+    let jobRoute = "/jobs"
+    if (params.signedIn == "signedIn") {
+        jobRoute += "/signedIn"
+    } else {
+        jobRoute += "/notSignedIn"
+    }
     return (
         <div class = "bookmarkStack">
             <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbhiai2jewv7XGXhDeIbVHNIMQCxw6nVKGQkIWpga-uQO5fKNtXRmrqMMqybf_QB0pHzw&usqp=CAU" alt = "home depot"></img>
             <br></br>
-            <button class = "view"> <Link class = "link" to="/jobs"> View Jobs </Link> </button>
+            <button class = "view"> <Link class = "link" to={jobRoute}> View Jobs </Link> </button>
         </div>
     )
 }

@@ -25,7 +25,22 @@ function SectorComponent() {
         //const newElements = elements.filter((_, i) => i !== index);
        // setElements(newElements);
       };
-
+    if (props.signedIn) {
+    return (
+        <div>
+            <button class = "jobReturnToHome"> <Link class = "link" to="/"> Return To Home </Link></button>
+            <h1><center> {props.sector} Companies </center></h1>
+            <div class = "row">
+                {elements.map((element, index) => (
+                    <div key={index}>
+                    {element}
+                    <button class = "bookmark" onClick={() => alert("Bookmarked!!")}> Bookmark </button>
+                    </div>
+                ))}
+        </div>
+        </div>
+    )
+    }
     return (
         <div>
             <button class = "jobReturnToHome"> <Link class = "link" to="/"> Return To Home </Link></button>
@@ -34,7 +49,6 @@ function SectorComponent() {
                 {elements.map((element, index) => (
                     <div key={index}>
                     {element}
-                    <button class = "bookmark" onClick={() => alert("Bookmarked!!")}> Bookmark </button>
                     </div>
                 ))}
         </div>

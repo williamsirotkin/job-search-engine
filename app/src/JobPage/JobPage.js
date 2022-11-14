@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import "./JobPage.css"
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-router-dom";
 
 function JobComponent() {
     return (
