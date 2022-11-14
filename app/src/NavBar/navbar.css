@@ -1,5 +1,7 @@
 .navBar {
     display: flex;
+	justify-content: flex-end;
+	padding: 1%;
     background-color: #000000;
     color: white;
     text-align: center;
@@ -32,12 +34,30 @@ img {
 
 .navBar {
 	margin-left:auto;
-	background-color: #000000;
+	background-color: lightskyblue;
 }
 
 .login {
-	width: 100%;
-	background-color: gray;
+	padding: 1%;
 }
-        
+
+.btn {
+	background-color: white;
+	color: black;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:visted {
+	text-decoration: none;
+	color: black;
+}
+
 

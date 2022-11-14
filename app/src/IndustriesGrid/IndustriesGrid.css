@@ -18,7 +18,7 @@
 
 .industries {
     text-align: center;
-    color: red;
+    color: black;
 }
 
 .item .btn {
@@ -30,7 +30,7 @@
   background-color: #555;
   color: white;
   font-size: 16px;
-  padding: 12px 24px;
+  padding: 3% 6%;
   border: none;
   cursor: pointer;
   border-radius: 5px;
