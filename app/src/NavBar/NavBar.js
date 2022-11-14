@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
+import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import './navbar.css';
 
 function Login() {
@@ -29,21 +30,26 @@ function Login() {
     };
 
     return (
-        <div class = "login">
-            {profile ? (
-                <div>
-                    <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />
-                </div>
-            ) : (
-                <GoogleLogin
-                    clientId={clientId}
-                    buttonText="Sign in with Google"
-                    onSuccess={onSuccess}
-                    onFailure={onFailure}
-                    cookiePolicy={'single_host_origin'}
-                    isSignedIn={true}
-                />
-            )}
+        <div class = "navBar">
+            <div class = "login">
+                {profile ? (
+                    <div>
+                        <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />
+                    </div>
+                ) : (
+                    <GoogleLogin
+                        clientId={clientId}
+                        buttonText="Sign in with Google"
+                        onSuccess={onSuccess}
+                        onFailure={onFailure}
+                        cookiePolicy={'single_host_origin'}
+                        isSignedIn={true}
+                    />
+                )}
+            </div>
+            <button class= "btn"> 
+            <a href ="/"> Home </a>
+            </button>
         </div>
     );
 }

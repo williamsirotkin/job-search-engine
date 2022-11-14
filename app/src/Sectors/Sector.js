@@ -28,7 +28,6 @@ function SectorComponent() {
 
     return (
         <div>
-            <button class = "jobReturnToHome"> <Link class = "link" to="/"> Return To Home </Link></button>
             <h1><center> {props.sector} Jobs </center></h1>
             <div class = "row">
                 {elements.map((element, index) => (
