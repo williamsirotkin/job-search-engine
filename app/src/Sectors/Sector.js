@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './Sector.css'
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-router-dom";
 
 function JobElement() {
     return (
@@ -14,6 +14,7 @@ function JobElement() {
 }
 
 function SectorComponent() {
+    let props = useParams()
     const [elements, setElements] = useState([
         <JobElement/>,
         <JobElement/>,
@@ -28,7 +29,7 @@ function SectorComponent() {
     return (
         <div>
             <button class = "jobReturnToHome"> <Link class = "link" to="/"> Return To Home </Link></button>
-            <h1><center> Finance Jobs </center></h1>
+            <h1><center> {props.sector} Jobs </center></h1>
             <div class = "row">
                 {elements.map((element, index) => (
                     <div key={index}>

@@ -6,6 +6,7 @@ import BookmarkedCompanies from './BookmarkCompaniesRow/BookmarkCompaniesRow.js'
 import SectorComponent from './Sectors/Sector.js'
 import JobPage from "./JobPage/JobPage.js"
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import { loadAuth2WithProps } from 'gapi-script';
 
 
 function App() { 
@@ -25,7 +26,7 @@ function App() {
         <JobPage />
       }></Route>
 
-      <Route path = "/sector" element={
+      <Route path = "/sector/:sector" element={
         <SectorComponent/>
         }></Route>
         
