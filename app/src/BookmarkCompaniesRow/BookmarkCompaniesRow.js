@@ -16,12 +16,14 @@ function BookmarkElement() {
     return (
         <div class = "bookmarkStack">
             <h2> The Home Depot </h2>
-            <button class = "view"> <a href = {"https://google.com/search?q=jobs+" + jobName}> View Jobs </a></button>
+            <button class = "view"> <a target="_blank" href = {"https://google.com/search?q=jobs+" + jobName}> View Jobs </a></button>
         </div>
     )
 }
 
 function BookmarkedCompanies() {
+    let params = useParams();
+
     const [elements, setElements] = useState([
         <BookmarkElement/>,
         <BookmarkElement/>,
@@ -32,9 +34,10 @@ function BookmarkedCompanies() {
         const newElements = elements.filter((_, i) => i !== index);
         setElements(newElements);
       };
+    if (params.signedIn) {
     return (
         <div>
-        <h1><center>Bookmarked Companies</center></h1>
+        <h1><center> Your Bookmarked Companies</center></h1>
         <div class = "row">
             {elements.map((element, index) => (
                 <div key={index}>
@@ -46,7 +49,14 @@ function BookmarkedCompanies() {
             ))}
         </div>
         </div>
-    )
+    ) } else {
+        return (
+            <div class = "message">
+                <br></br>
+                <h1> Sign In Above To Bookmark Companies For Future Use </h1>
+                </div>
+        )
+            }
 }
 
 export default BookmarkedCompanies;

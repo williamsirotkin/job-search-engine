@@ -36,3 +36,21 @@
 	text-decoration:none;
     margin-bottom: 1.5%;
 }
+
+.view > a {
+	color: white;
+}
+
+.topRow {
+	text-align: center;
+}
+
+.add {
+	font-size: 0.75vw;
+	color: white;
+	background-color: rgb(183, 50, 81);
+}
+
+.add2 {
+	color: white;
+}

@@ -5,6 +5,7 @@ import NavBar from './NavBar/NavBar.js'
 import BookmarkedCompanies from './BookmarkCompaniesRow/BookmarkCompaniesRow.js'
 import SectorComponent from './Sectors/Sector.js'
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import AddCompany from './AddCompany/AddCompany.js';
 import { loadAuth2WithProps } from 'gapi-script';
 
 
@@ -18,6 +19,7 @@ function App() {
       <Route path = "/" element={
           <React.Fragment>
             <IndustriesGrid />
+            <BookmarkedCompanies/>
           </React.Fragment>
       }></Route>
 
@@ -34,6 +36,10 @@ function App() {
 
       <Route path = "/sector/:sector/:signedIn" element={
           <SectorComponent/>
+        }></Route>
+
+      <Route path = "/addCompany" element={
+          <AddCompany/>
         }></Route>
         
       </Routes>

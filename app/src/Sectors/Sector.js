@@ -7,7 +7,7 @@ function JobElement() {
     return (
         <div class = "applyStack">
             <h2> The Home Depot </h2>
-            <button class = "view"> <a href ="http://google.com/search?q=jobs"> View Jobs </a></button>
+            <button class = "view"> <a target="_blank" href ="http://google.com/search?q=jobs"> View Jobs </a></button>
         </div>
     )
 }
@@ -27,7 +27,10 @@ function SectorComponent() {
     if (props.signedIn) {
     return (
         <div>
+            <div class = "topRow">
             <h1><center> {props.sector} Companies </center></h1>
+            <button class = "add"> <Link  class = "add2" to = "/addCompany">Add A Company To This List </Link></button>
+            </div>
             <div class = "row">
                 {elements.map((element, index) => (
                     <div key={index}>
@@ -41,8 +44,7 @@ function SectorComponent() {
     }
     return (
         <div>
-            <button class = "jobReturnToHome"> <Link class = "link" to="/"> Return To Home </Link></button>
-            <h1><center> {props.sector} Jobs </center></h1>
+            <h1><center> {props.sector} Companies </center></h1>
             <div class = "row">
                 {elements.map((element, index) => (
                     <div key={index}>

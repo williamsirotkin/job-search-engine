@@ -10,7 +10,7 @@ function IndustriesGrid() {
     }
     return (
         <div>
-            <h1 class = "industries">Industries</h1>
+            <h1 class = "industries"> Find a Company By Industry </h1>
             <div class="container">
                 <div class="item">
                     <img src = "https://ceblog.s3.amazonaws.com/wp-content/uploads/2012/05/20172622/ce-travel.jpg" alt = "Travel" class = "industriesImage"></img>

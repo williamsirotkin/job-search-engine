@@ -41,7 +41,7 @@ function Login() {
             <div class = "login">
                 {profile ? (
                     <div>
-                        <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />
+                        <GoogleLogout clientId={clientId}  onLogoutSuccess={logOut} />
                     </div>
                 ) : (
                     <GoogleLogin
