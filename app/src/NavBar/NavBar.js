@@ -38,8 +38,8 @@ function Login() {
 
     return (
         <div class = "navBar">
-            <img src = "../images/logo.png" alt = "logo" class = "logo"/>
-            <h1 class ="title"> Job Search Engine </h1>
+            <img src = {require('../images/logo.png')} alt = "logo"/>>
+              <h1 class ="title"> Job Search Engine </h1>
             <div class = "login">
                 {profile ? (
                     <div>

@@ -18,15 +18,15 @@ function App() {
 
       <Route path = "/" element={
           <React.Fragment>
-            <IndustriesGrid />
             <BookmarkedCompanies/>
+            <IndustriesGrid />
           </React.Fragment>
       }></Route>
 
       <Route path = "/:signedIn" element={
           <React.Fragment>
-            <IndustriesGrid />
             <BookmarkedCompanies/>
+            <IndustriesGrid />
           </React.Fragment>
       }></Route>
 

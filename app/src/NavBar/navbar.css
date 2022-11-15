@@ -1,10 +1,9 @@
 .navBar {
-    display: grid;
+    display: flex;
 	grid-template-columns: 10% 30% 50% 10%;
 	padding: 1%;
     background-color: #000000;
     color: white;
-    text-align: center;
 }
 
 .loginButton {
@@ -29,7 +28,6 @@
 }
 
 .navBar {
-	margin-left:auto;
 	background-color: lightskyblue;
 }
 
