@@ -25,7 +25,7 @@ function Login() {
 });
 
     const signInChanged = () => {
-        console.log("I am logged in")
+        console.log("I am logged in" + email)
         navigate("/signedIn");
     } 
 
@@ -41,6 +41,35 @@ function Login() {
         setProfile(null);
         navigate('/')
     };
+
+    if (profile) {
+    return (
+        <div class = "navBar">
+            <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
+            <h1 class = "title"> Job Search Engine </h1>
+            <div class = "login">
+            <h3 class = ""> Welcome {profile.name} </h3>
+                {profile ? (
+                    <div>
+                        <GoogleLogout clientId={clientId} onLogoutSuccess={logOut} />
+                    </div>
+                ) : (
+                    <GoogleLogin
+                        clientId={clientId}
+                        buttonText="Sign in with Google"
+                        onSuccess={onSuccess}
+                        onFailure={onFailure}
+                        cookiePolicy={'single_host_origin'}
+                        isSignedIn={true}
+                    />
+                )}
+            </div>
+            <button class= "home"> 
+            <a href ="/"> Home </a>
+            </button>
+        </div>
+    );
+} else {
     return (
         <div class = "navBar">
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
@@ -66,6 +95,7 @@ function Login() {
             </button>
         </div>
     );
+}
 }
 
 export default Login;
