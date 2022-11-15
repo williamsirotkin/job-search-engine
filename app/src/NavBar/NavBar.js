@@ -24,7 +24,6 @@ function Login() {
 
     const signInChanged = (str) => {
         console.log("I am logged in, " + str)
-        navigate('/' + str)
     } 
 
     const onSuccess = (res) => {

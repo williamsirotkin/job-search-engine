@@ -65,6 +65,7 @@ function SectorComponent() {
        // setElements(newElements);
       };
       
+      if (props.signedIn) {
       return (
         <div class = "center">
         <h1 class = "sector-title"> <u>{props.sector} Sector </u></h1>
@@ -72,7 +73,14 @@ function SectorComponent() {
         <h2>{elements}</h2>
         </div>
       )
-      
+      } else {
+        return (
+            <div class = "center">
+            <h1 class = "sector-title"> <u>{props.sector} Sector </u></h1>
+            <h2>{elements}</h2>
+            </div>
+          )
+      }
       
     if (props.signedIn) {
     return (
