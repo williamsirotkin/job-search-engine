@@ -38,7 +38,8 @@ function Login() {
 
     return (
         <div class = "navBar">
-              <h1 class ="title"> Job Search Engine </h1>
+            <img src = "./LogoMakr-6cxUMC.png" alt = "logo" class = "logo"></img>
+            <h1 class ="title"> Job Search Engine </h1>
             <div class = "login">
                 {profile ? (
                     <div>
