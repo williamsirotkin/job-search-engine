@@ -4,11 +4,17 @@ import { gapi, loadAuth2WithProps } from 'gapi-script';
 import './navbar.css';
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate, Navigate, useLocation, useParams} from "react-router-dom";
 
+function convertToEmptyOnNull(str) {
+    if (str == null || str == undefined) {
+        return ""
+    }
+    return "signedIn"
+}
+
 function Login() {
     let params = useParams();
     const location = useLocation();
     let navigate = useNavigate()
-    let email = ""
     const [ profile, setProfile ] = useState([]);
     const clientId = '386932037035-k8v833noqjk7m4auae0t83vnkrqvvg3t.apps.googleusercontent.com';
     useEffect(() => {
@@ -25,7 +31,6 @@ function Login() {
 });
 
     const signInChanged = () => {
-        console.log("I am logged in" + email)
         navigate("/signedIn");
     } 
 
@@ -42,13 +47,13 @@ function Login() {
         navigate('/')
     };
 
-    if (profile) {
+    if (profile && profile.name) {
     return (
         <div class = "navBar">
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
             <h1 class = "title"> Job Search Engine </h1>
             <div class = "login">
-            <h3 class = ""> Welcome {profile.name} </h3>
+            <h3> Welcome {profile.name} </h3>
                 {profile ? (
                     <div>
                         <GoogleLogout clientId={clientId} onLogoutSuccess={logOut} />
@@ -65,7 +70,7 @@ function Login() {
                 )}
             </div>
             <button class= "home"> 
-            <a href ="/"> Home </a>
+            <Link to ={"/" + profile.email}> Home </Link>
             </button>
         </div>
     );
@@ -91,7 +96,7 @@ function Login() {
                 )}
             </div>
             <button class= "home"> 
-            <a href ="/"> Home </a>
+                <Link to ={"/" + convertToEmptyOnNull(profile)}> Home </Link>
             </button>
         </div>
     );
