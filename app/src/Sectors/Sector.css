@@ -72,3 +72,19 @@
 .sector-title {
 	text-align: center;
 }
+
+.add-company {
+	text-align: center;
+}
+
+.add-company > button {
+	width: 15%;
+	background-color: rgb(178, 44, 44);
+	text-align: center;
+	color: white;
+	font-size: 1vw;
+}
+
+.center {
+	text-align: center;
+}

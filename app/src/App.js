@@ -38,9 +38,10 @@ function App() {
           <SectorComponent/>
         }></Route>
 
-        <Route path = "/addCompany" element={
+        <Route path = "/addCompany/add/:sector" element={
           <AddCompany/>
         }></Route>
+        
 
       <Route path = "/addCompany/:edit/:sector" element={
           <AddCompany/>
