@@ -27,6 +27,10 @@
     margin-bottom: 1.5%;
 }
 
+.edit-item {
+	margin: 1%
+}
+
 .bookmark {
 	background-color:#a2ae19;
 	display:inline-block;
@@ -63,4 +67,8 @@
 	font-size:100%;
 	text-decoration:none;
     margin-bottom: 1.5%;
+}
+
+.sector-title {
+	text-align: center;
 }
