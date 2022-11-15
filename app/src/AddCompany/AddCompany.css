@@ -28,3 +28,9 @@
     color: white;
     font-size: 1vw;
 }
+
+.go-back {
+    padding: 1.5%;
+    background-color: rgb(195, 187, 187);
+    color: white;
+}

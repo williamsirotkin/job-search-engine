@@ -42,7 +42,7 @@ function App() {
           <AddCompany/>
         }></Route>
 
-      <Route path = "/addCompany/:edit" element={
+      <Route path = "/addCompany/:edit/:sector" element={
           <AddCompany/>
         }></Route>
         
