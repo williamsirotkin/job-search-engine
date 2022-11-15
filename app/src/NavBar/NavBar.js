@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import './navbar.css';
-import {BrowserRouter as Router, Routes, Route, Link, useNavigate, Navigate} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Link, useNavigate, Navigate, useLocation} from "react-router-dom";
 
 function Login() {
+    const location = useLocation();
     let navigate = useNavigate()
+    let email = ""
     const [ profile, setProfile ] = useState([]);
     const clientId = '386932037035-k8v833noqjk7m4auae0t83vnkrqvvg3t.apps.googleusercontent.com';
     useEffect(() => {
@@ -14,14 +16,15 @@ function Login() {
                 clientId: clientId,
                 scope: ''
             });
-            auth2.isSignedIn.listen(signInChanged);
+            let profile = auth2.currentUser.get().getBasicProfile();
+            auth2.isSignedIn.listen(signInChanged(profile.getName() + "*" + profile.getEmail()));
         };
         gapi.load('auth2', initClient);
     });
 
-    const signInChanged = () => {
-        console.log("I am logged in")
-        navigate('/signedIn')
+    const signInChanged = (str) => {
+        console.log("I am logged in, " + str)
+        navigate('/' + str)
     } 
 
     const onSuccess = (res) => {
@@ -34,6 +37,7 @@ function Login() {
 
     const logOut = () => {
         setProfile(null);
+        navigate('/')
     };
 
     return (
@@ -41,9 +45,10 @@ function Login() {
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
             <h1 class = "title"> Job Search Engine </h1>
             <div class = "login">
+            <h3 class = "email"> Welcome {useLocation().pathname.substring(useLocation().pathname.indexOf('/') + 1, useLocation().pathname.indexOf('%20'))}</h3>
                 {profile ? (
                     <div>
-                        <GoogleLogout clientId={clientId}  onLogoutSuccess={logOut} />
+                        <GoogleLogout clientId={clientId} onLogoutSuccess={logOut} />
                     </div>
                 ) : (
                     <GoogleLogin

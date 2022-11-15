@@ -34,7 +34,8 @@
 }
 
 .login {
-	padding-left: 60%;
+	display: flex;
+	padding-left: 50%;
 }
 
 .home {
