@@ -1,32 +1,79 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './Sector.css'
 import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-router-dom";
+import axios from 'axios'
 
-function JobElement() {
+function JobElement(props) {
+    console.log(props.signedIn)
+    if (props.signedIn) {
     return (
         <div class = "applyStack">
-            <h2> The Home Depot </h2>
-            <button class = "view"> <a target="_blank" href ="http://google.com/search?q=jobs"> View Jobs </a></button>
+            <h3> {props.name} </h3>
+            <button class = "view"> <a target="_blank" href ={"http://google.com/search?q=jobs+" + props.name}> View Jobs </a></button>
+            <Link to ={"/addCompany/" + props.name}><button class = "edit">Edit Item </button></Link>
+            <button class = "bookmark" onClick={() => alert("Bookmarked!!")}> Bookmark </button>
+        </div>
+    )
+    }
+    return (
+        <div class = "applyStack">
+            <h3> {props.name} </h3>
+            <button class = "view"> <a target="_blank" href ={"http://google.com/search?q=jobs+" + props.name}> View Jobs </a></button>
+        </div>
+    )
+}
+
+function JobCluster(props) {
+    return (
+        <div>
+            {props.names.map((i) => (
+                console.log(i),
+        <JobElement name = {i} signedIn = {props.signedIn}/>     
+        ))}
         </div>
     )
 }
 
 function SectorComponent() {
+    let companies = []
     let props = useParams()
+    let SignedIn = "";
+    if (props.signedIn) {
+        SignedIn += props.signedIn
+    }
     const [elements, setElements] = useState([
-        <JobElement/>,
-        <JobElement/>,
-        <JobElement/>,
       ]);
+      
+    useEffect(() => {
+    axios.get("https://api-v2.intrinio.com/companies?sector=" + ensureSectorName(), { 'headers': { 'Authorization': "Ojg2MzFhNTE2NzFlOGZjZmI5MDQwYjJlZGVkMWE3ZTU3" } })
+    .then((response => {
+        for (let i = 0; i < response.data.companies.length; i++) {
+            companies.push(response.data.companies[i].name);
+        }
+        setElements(<JobCluster names = {companies} signedIn = {SignedIn}/>)
+        console.log("Look here" + companies[0]);
+    }))
+    .catch((error) => {
+        console.log(error);
+    });
+}, [])
+
 
       const bookmarkElement = (index) => {
         //const newElements = elements.filter((_, i) => i !== index);
        // setElements(newElements);
       };
+      
+      return (
+        <h1>{elements}</h1>
+      )
+      
+      
     if (props.signedIn) {
     return (
         <div>
+            <h1> {elements}</h1>
             <div class = "topRow">
             <h1><center> {props.sector} Companies </center></h1>
             <button class = "add"> <Link  class = "add2" to = "/addCompany">Add A Company To This List </Link></button>
@@ -56,6 +103,11 @@ function SectorComponent() {
         </div>
         </div>
     )
+    
+}
+
+function ensureSectorName(str) {
+    return "Technology"
 }
 
 export default SectorComponent;
