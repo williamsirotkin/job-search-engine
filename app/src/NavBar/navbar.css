@@ -1,10 +1,15 @@
 .navBar {
-    display: grid;
+    display: flex;
 	grid-template-columns: 45% 45% 10%;
 	grid-template-rows: 50%;
-	padding-top: 2%;
+	padding-top: 0.5%;
 	background-color: lightskyblue;
 	color: white;
+}
+
+.title {
+	margin-left: 1%;
+	font-size: 2vw;
 }
 
 .loginButton {
@@ -32,9 +37,12 @@
 	padding-left: 60%;
 }
 
-.btn {
+.home {
+	position:relative;
+	top:1px;
 	background-color: white;
-	padding: 3%;
+	height: 0%;
+	padding: 1%;
 	color: black;
 	font-size: 16px;
 	border: none;
@@ -52,13 +60,9 @@ a:visted {
 	color: black;
 }
 
-.title {
-	margin-right: 20%;
-	color: white;
-}
 
 .logo {
-    width: 15%;
-	padding-bottom: 3%;
-	padding-left: 3%;
+    width: 5%;
+	padding-bottom: 1%;
+	padding-left: 1%;
 }

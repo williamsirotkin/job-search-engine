@@ -53,7 +53,9 @@ function BookmarkedCompanies() {
         return (
             <div class = "message">
                 <br></br>
-                <h1>Sign In Above To Bookmark Companies  </h1>
+                <h1><u>Sign In Above To Bookmark Companies </u> </h1>
+                <br></br>
+                <br></br>
                 </div>
         )
             }

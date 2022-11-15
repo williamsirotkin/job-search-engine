@@ -39,6 +39,7 @@ function Login() {
     return (
         <div class = "navBar">
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
+            <h1 class = "title"> Job Search Engine </h1>
             <div class = "login">
                 {profile ? (
                     <div>
@@ -55,7 +56,7 @@ function Login() {
                     />
                 )}
             </div>
-            <button class= "btn"> 
+            <button class= "home"> 
             <a href ="/"> Home </a>
             </button>
         </div>
