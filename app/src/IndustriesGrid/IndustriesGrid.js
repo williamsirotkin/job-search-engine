@@ -6,7 +6,7 @@ function IndustriesGrid() {
     let params = useParams();
     let signedIn = "";
     if (params.signedIn) {
-        signedIn += params.signedIn;
+        signedIn = params.signedIn;
     }
     return (
         <div>

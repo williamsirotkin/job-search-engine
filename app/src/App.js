@@ -26,7 +26,7 @@ function App() {
       <Route path = "/:signedIn" element={
           <React.Fragment>
             <BookmarkedCompanies/>
-            <IndustriesGrid />
+            <IndustriesGrid/>
           </React.Fragment>
       }></Route>
 

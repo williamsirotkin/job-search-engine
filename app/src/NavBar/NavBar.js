@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import { gapi } from 'gapi-script';
+import { gapi, loadAuth2WithProps } from 'gapi-script';
 import './navbar.css';
-import {BrowserRouter as Router, Routes, Route, Link, useNavigate, Navigate, useLocation} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Link, useNavigate, Navigate, useLocation, useParams} from "react-router-dom";
 
 function Login() {
+    let params = useParams();
     const location = useLocation();
     let navigate = useNavigate()
     let email = ""
@@ -17,14 +18,15 @@ function Login() {
                 scope: ''
             });
             let profile = auth2.currentUser.get().getBasicProfile();
-            auth2.isSignedIn.listen(signInChanged(profile.getName() + "*" + profile.getEmail()));
+            auth2.isSignedIn.listen(signInChanged);
         };
         gapi.load('auth2', initClient);
-    });
+        
+});
 
-    const signInChanged = (str) => {
-        console.log("I am logged in, " + str)
-        navigate("/" + str)
+    const signInChanged = () => {
+        console.log("I am logged in")
+        navigate("/signedIn");
     } 
 
     const onSuccess = (res) => {
@@ -37,9 +39,8 @@ function Login() {
 
     const logOut = () => {
         setProfile(null);
-       // navigate('/')
+        navigate('/')
     };
-
     return (
         <div class = "navBar">
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
