@@ -48,3 +48,8 @@
 .view > a {
 	color: white;
 }
+
+.message h1{
+	font-family: "Lucida Console", "Courier New", monospace;
+	color: red;
+}
