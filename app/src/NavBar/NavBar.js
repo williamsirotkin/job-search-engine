@@ -24,6 +24,7 @@ function Login() {
 
     const signInChanged = (str) => {
         console.log("I am logged in, " + str)
+        navigate("/" + str)
     } 
 
     const onSuccess = (res) => {
@@ -36,7 +37,7 @@ function Login() {
 
     const logOut = () => {
         setProfile(null);
-        navigate('/')
+       // navigate('/')
     };
 
     return (
@@ -44,7 +45,6 @@ function Login() {
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
             <h1 class = "title"> Job Search Engine </h1>
             <div class = "login">
-            <h3 class = "email"> Welcome {useLocation().pathname.substring(useLocation().pathname.indexOf('/') + 1, useLocation().pathname.indexOf('%20'))}</h3>
                 {profile ? (
                     <div>
                         <GoogleLogout clientId={clientId} onLogoutSuccess={logOut} />
