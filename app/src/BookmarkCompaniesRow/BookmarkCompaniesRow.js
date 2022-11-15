@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './BookmarkCompaniesRow.css'
 import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-router-dom";
 
-function BookmarkElement() {
+function BookmarkElement(props) {
     let params = useParams();
     let jobRoute = "/jobs"
     if (params.signedIn == "signedIn") {
@@ -15,7 +15,7 @@ function BookmarkElement() {
     let jobName = "The Home Depot";
     return (
         <div class = "bookmarkStack">
-            <h2> The Home Depot </h2>
+            <h2> {props.company} </h2>
             <button class = "view"> <a target="_blank" href = {"https://google.com/search?q=jobs+" + jobName}> View Jobs </a></button>
         </div>
     )
@@ -25,9 +25,9 @@ function BookmarkedCompanies() {
     let params = useParams();
 
     const [elements, setElements] = useState([
-        <BookmarkElement/>,
-        <BookmarkElement/>,
-        <BookmarkElement/>,
+        <BookmarkElement company = "Home Depot"/>,
+        <BookmarkElement company = "Lowes"/>,
+        <BookmarkElement company = "Delta"/>,
       ]);
 
       const removeElement = (index) => {

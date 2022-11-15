@@ -66,7 +66,10 @@ function SectorComponent() {
       };
       
       return (
-        <h1>{elements}</h1>
+        <div>
+        <h1 class = "sector-title"> <u>{props.sector} Sector </u></h1>
+        <h2>{elements}</h2>
+        </div>
       )
       
       

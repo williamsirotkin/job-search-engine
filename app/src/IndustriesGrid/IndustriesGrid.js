@@ -14,7 +14,7 @@ function IndustriesGrid() {
             <div class="container">
                 <div class="item">
                     <img src = "https://ceblog.s3.amazonaws.com/wp-content/uploads/2012/05/20172622/ce-travel.jpg" alt = "Travel" class = "industriesImage"></img>
-                    <button class="btn"><Link class = "link" to={"/sector/Energy"+signedIn}> Energy </Link></button>
+                    <button class="btn"><Link class = "link" to={"/sector/Energy/"+signedIn}> Energy </Link></button>
                 </div>
                 <div class="item">
                     <img src = "https://i.etsystatic.com/9684337/r/il/5c0f82/726795730/il_fullxfull.726795730_km9q.jpg" alt = "Food" class = "industriesImage"></img>
