@@ -11,7 +11,7 @@ function JobElement(props) {
         <div class = "applyStack">
             <h3> {props.name} </h3>
             <button class = "view"> <a target="_blank" href ={"http://google.com/search?q=jobs+" + props.name}> View Jobs </a></button>
-            <Link to ={"/addCompany/" + props.name}><button class = "edit">Edit Item </button></Link>
+            <Link class = "edit-item" to ={"/addCompany/" + props.name}><button class = "edit">Edit Item </button></Link>
             <button class = "bookmark" onClick={() => alert("Bookmarked!!")}> Bookmark </button>
         </div>
     )
@@ -46,7 +46,7 @@ function SectorComponent() {
       ]);
       
     useEffect(() => {
-    axios.get("https://api-v2.intrinio.com/companies?sector=" + ensureSectorName(), { 'headers': { 'Authorization': "Ojg2MzFhNTE2NzFlOGZjZmI5MDQwYjJlZGVkMWE3ZTU3" } })
+    axios.get("https://api-v2.intrinio.com/companies?sector=" + ensureSectorName(props.sector), { 'headers': { 'Authorization': "Ojg2MzFhNTE2NzFlOGZjZmI5MDQwYjJlZGVkMWE3ZTU3" } })
     .then((response => {
         for (let i = 0; i < response.data.companies.length; i++) {
             companies.push(response.data.companies[i].name);
@@ -107,7 +107,20 @@ function SectorComponent() {
 }
 
 function ensureSectorName(str) {
-    return "Technology"
+    if (str == "Tech") {
+        return "Technology"
+    } else if (str == "Automotive") {
+        return "Industrial Goods"
+    } else if (str == "Finance") {
+        return "Financial"
+    } else if (str == "Healthcare") {
+        return "Healthcare"
+    } else if (str == "Consumer Goods") {
+        return "Consumer Goods"
+    } else if (str == "Energy") {
+        return "Utilities"
+    } 
+    return "Basic Materials"
 }
 
 export default SectorComponent;

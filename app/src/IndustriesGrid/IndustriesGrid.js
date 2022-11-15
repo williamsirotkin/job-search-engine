@@ -14,11 +14,11 @@ function IndustriesGrid() {
             <div class="container">
                 <div class="item">
                     <img src = "https://ceblog.s3.amazonaws.com/wp-content/uploads/2012/05/20172622/ce-travel.jpg" alt = "Travel" class = "industriesImage"></img>
-                    <button class="btn"><Link class = "link" to={"/sector/Travel/"+signedIn}> Travel </Link></button>
+                    <button class="btn"><Link class = "link" to={"/sector/Energy"+signedIn}> Energy </Link></button>
                 </div>
                 <div class="item">
                     <img src = "https://i.etsystatic.com/9684337/r/il/5c0f82/726795730/il_fullxfull.726795730_km9q.jpg" alt = "Food" class = "industriesImage"></img>
-                    <button class="btn"><Link class = "link"to={"/sector/Food/"+signedIn}> Food </Link></button>
+                    <button class="btn"><Link class = "link"to={"/sector/Consumer Goods/"+signedIn}> Consumer Goods </Link></button>
                 </div>
                 <div class="item">
                     <img src = "https://www.macquarie.com/au/en/perspectives/technology/_jcr_content/root/general_hero_copy/mobile-image.coreimg.jpeg/1660197980541/hero-technology-hub.jpeg" alt = "Technology" class = "industriesImage"></img>

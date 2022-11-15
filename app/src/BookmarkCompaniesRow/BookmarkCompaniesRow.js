@@ -37,7 +37,7 @@ function BookmarkedCompanies() {
     if (params.signedIn) {
     return (
         <div>
-        <h1><center> Your Bookmarked Companies</center></h1>
+        <h1><center> <u>Your Bookmarked Companies </u></center></h1>
         <div class = "row">
             {elements.map((element, index) => (
                 <div key={index}>
@@ -53,7 +53,7 @@ function BookmarkedCompanies() {
         return (
             <div class = "message">
                 <br></br>
-                <h1> Sign In Above To Bookmark Companies  </h1>
+                <h1>Sign In Above To Bookmark Companies  </h1>
                 </div>
         )
             }
