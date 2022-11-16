@@ -5,12 +5,13 @@ const PORT = 3001;
 var cors = require('cors');
 app.use(cors())
 
-app.get('/fakeemail@gmail.com', (req, res)=>{
+app.get('/email/:email', (req, res)=>{
     res.status(200);
+    console.log(res);
     res.send([
         "The Home Depot",
         "Delta Airlines",
-        "Chick-fil-A"
+        req.protocol + '://' + req.get('host') + req.originalUrl
     ]);
 });
 
@@ -21,3 +22,4 @@ app.listen(PORT, (error) =>{
         console.log("Error occurred, server can't start", error);
     }
 );
+
