@@ -9,7 +9,7 @@ function IndustriesGrid() {
         signedIn = params.signedIn;
     }
     return (
-        <div>
+        <div class = "backG">
             <h1 class = "industries"> Find a Company By Industry </h1>
             <div class="container">
                 <div class="item">
