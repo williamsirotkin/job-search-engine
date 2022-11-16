@@ -1,4 +1,60 @@
 .row {
     display: flex;
     justify-content: space-evenly;
+    text-align: center;
+}
+
+.link {
+	text-decoration: none;
+	color: white;
+}
+
+.bookmarkStack {
+    text-align: center;
+}
+
+
+.bookmarkStack > img {
+    width: 50%;
+}
+
+.bookmarkStack > .view {
+	background-color:#44c767;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:100%;
+	text-decoration:none;
+    margin-bottom: 1.5%;
+}
+
+
+.bookmarkStack > h2 {
+	color: rgb(89, 50, 50);
+}
+
+.remove {
+    background-color:#cc2c2c;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:100%;
+	text-decoration:none;
+}
+.message {
+	text-align: center;
+}
+
+.view > a {
+	color: white;
+}
+
+.message h1{
+	font-family: "Lucida Console", "Courier New", monospace;
+	color: red;
+}
+
+.hi center {
+	font-family: "Lucida Console", "Courier New", monospace;
+	color: red;
 }

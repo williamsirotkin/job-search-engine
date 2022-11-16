@@ -1,34 +1,70 @@
-nav {
+.navBar {
     display: flex;
-    background-color: #000000;
-    color: white;
-    text-align: center;
+	grid-template-columns: 45% 45% 10%;
+	grid-template-rows: 50%;
+	padding-top: 0.5%;
+	background-color: lightskyblue;
+	color: white;
 }
 
-img {
-    width: 7%;
+.navBar h1 {
+	padding-left: 25%;
+	padding-right: 25%;
+}
+.title {
+	margin-left: 1%;
+	font-size: 2vw;
 }
 
-.loginButton {
-    margin: 1%;
-	background-color:#44c767;
-	border-radius: 100%;
-	border:1px solid #18ab29;
-	display:inline-block;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:100%;
-	text-decoration:none;
-    margin-left:auto;
-	text-shadow:0px 1px 0px #2f6627;
-}
-.loginButton:hover {
-	background-color:#5cbf2a;
-}
+
 .loginButton:active {
 	position:relative;
 	top:1px;
 }
 
-        
+.login {
+	display: flex;
+}
+
+.home {
+	position:relative;
+	top:1px;
+	background-color: white;
+	height: 0%;
+	padding: 1%;
+	color: black;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:visted {
+	text-decoration: none;
+	color: black;
+}
+
+
+.logo {
+    width: 5%;
+	padding-bottom: 1%;
+	padding-left: 1%;
+}
+
+.welcome {
+	margin-left: 50%;
+}
+
+.home img{
+	width: 20px;
+	height: 20px;
+
+}
+
+
 

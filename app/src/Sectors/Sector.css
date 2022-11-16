@@ -1,0 +1,90 @@
+.row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.applyStack {
+    text-align: center;
+}
+
+.link {
+	text-decoration: none;
+	color: white;
+}
+
+
+.applyStack > img {
+    width: 50%;
+}
+
+.applyStack > .view {
+	background-color:#44c767;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:100%;
+	text-decoration:none;
+    margin-bottom: 1.5%;
+}
+
+.edit-item {
+	margin: 1%
+}
+
+.bookmark {
+	background-color:#a2ae19;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:100%;
+	text-decoration:none;
+    margin-bottom: 1.5%;
+}
+
+.view > a {
+	color: white;
+}
+
+.topRow {
+	text-align: center;
+}
+
+.add {
+	font-size: 0.75vw;
+	color: white;
+	background-color: rgb(183, 50, 81);
+}
+
+.add2 {
+	color: white;
+}
+
+.edit {
+	background-color: rgb(71, 195, 236);
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:100%;
+	text-decoration:none;
+    margin-bottom: 1.5%;
+}
+
+.sector-title {
+	text-align: center;
+}
+
+.add-company {
+	text-align: center;
+}
+
+.add-company > button {
+	width: 15%;
+	background-color: rgb(178, 44, 44);
+	text-align: center;
+	color: white;
+	font-size: 1vw;
+}
+
+.center {
+	text-align: center;
+}
