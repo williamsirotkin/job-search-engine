@@ -9,7 +9,7 @@ function BookmarkElement(props) {
     if (params.signedIn == "signedIn") {
         jobRoute += "/signedIn"
     } else {
-        jobRoute += "/notSignedIn"
+        jobRoute += ""
     }
 
     let jobName = props.company;
@@ -21,19 +21,38 @@ function BookmarkElement(props) {
     )
 }
 
+function BookmarkCluster(props) {
+
+    return (
+        <div>
+             {props.companies.map((i) => (
+                console.log("Company : " + i),
+                    <BookmarkElement company = {i} signedIn = {props.signedIn}/>     
+                ))}
+        </div>
+    )
+
+}
+
 function BookmarkedCompanies(props) {
     let params = useParams();
-
+    let SignedIn = "";
+    if (params.signedIn) {
+        SignedIn += params.signedIn;
+    }
     const [elements, setElements] = useState([
-        <BookmarkElement company = {props.companies[0]}/>,
-        <BookmarkElement company = {props.companies[1]}/>,
-        <BookmarkElement company = {props.companies[2]}/>,
+        <BookmarkCluster companies = {props.companies} signedIn = {SignedIn}/>
       ]);
 
       const removeElement = (index) => {
         const newElements = elements.filter((_, i) => i !== index);
         setElements(newElements);
       };
+      /*
+      if (!elements){
+      setElements(<BookmarkCluster company = {props.companies} signedIn = {props.signedIn}/>)
+      }
+      */
     if (params.signedIn) {
     return (
         <div>
