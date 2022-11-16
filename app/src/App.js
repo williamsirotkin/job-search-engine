@@ -11,32 +11,35 @@ import axios from 'axios';
 
 function App() { 
   const [elements, setElements] = useState([]);
+  const [companies, setCompanies] = useState([]);
+  const getEmail = (email) =>  {
+    console.log(email);
+    setElements(email);
+      axios.get("http://localhost:3001/email/" + elements)
+      .then((response => {
+          console.log(response.data);
+          setCompanies(response.data)
+      }))
+      .catch((error) => {
+          console.log(error);
+      });
+}
 
-  useEffect(() => {
-    axios.get("http://localhost:3001/fakeemail@gmail.com")
-    .then((response => {
-        console.log(response.data);
-        setElements(response.data)
-    }))
-    .catch((error) => {
-        console.log(error);
-    });
-  }, [])
-  
+ 
   return (
     <Router>
-      <NavBar/>
+      <NavBar getEmail = {getEmail}/>
       <Routes>
       <Route path = "/" element={
           <React.Fragment>
-            <BookmarkedCompanies companies = {elements}/>
+            <BookmarkedCompanies companies = {companies}/>
             <IndustriesGrid />
           </React.Fragment>
       }></Route>
 
       <Route path = "/:signedIn" element={
           <React.Fragment>
-            <BookmarkedCompanies companies = {elements}/>
+            <BookmarkedCompanies companies = {companies}/>
             <IndustriesGrid/>
           </React.Fragment>
       }></Route>

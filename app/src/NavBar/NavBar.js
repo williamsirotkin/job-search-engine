@@ -3,6 +3,7 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi, loadAuth2WithProps } from 'gapi-script';
 import './navbar.css';
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate, Navigate, useLocation, useParams} from "react-router-dom";
+import axios from 'axios';
 
 function convertToEmptyOnNull(str) {
     if (str == null || str == undefined) {
@@ -11,7 +12,7 @@ function convertToEmptyOnNull(str) {
     return "signedIn"
 }
 
-function Login() {
+function Login(props) {
     let params = useParams();
     const location = useLocation();
     let navigate = useNavigate()
@@ -23,15 +24,21 @@ function Login() {
                 clientId: clientId,
                 scope: ''
             });
-            let profile = auth2.currentUser.get().getBasicProfile();
+            if (profile && profile.email) {
+                props.getEmail(profile.email)
+                console.log("got the email: " + profile.email)
+            } else if (profile) {
+                logOut()
+            }
             auth2.isSignedIn.listen(signInChanged);
         };
+
         gapi.load('auth2', initClient);
         
 });
 
     const signInChanged = () => {
-        if (profile && profile.name) {
+        if ((profile && !profile.name) || !profile) {
             navigate('/')
         } else {
             navigate('/signedIn')
@@ -49,13 +56,13 @@ function Login() {
 
     const logOut = () => {
         setProfile(undefined);
-        console.log("Hello")
+        console.log("I should be logged out ")
         navigate("/")
     };
 
     if (profile && !profile.name) {
         logOut()
-    }
+    } 
 
 
     if (profile && profile.name){
