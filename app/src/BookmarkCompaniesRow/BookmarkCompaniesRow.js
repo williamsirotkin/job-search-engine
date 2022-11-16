@@ -12,7 +12,7 @@ function BookmarkElement(props) {
         jobRoute += "/notSignedIn"
     }
 
-    let jobName = "The Home Depot";
+    let jobName = props.company;
     return (
         <div class = "bookmarkStack">
             <h2> {props.company} </h2>
@@ -21,13 +21,13 @@ function BookmarkElement(props) {
     )
 }
 
-function BookmarkedCompanies() {
+function BookmarkedCompanies(props) {
     let params = useParams();
 
     const [elements, setElements] = useState([
-        <BookmarkElement company = "Home Depot"/>,
-        <BookmarkElement company = "Lowes"/>,
-        <BookmarkElement company = "Delta"/>,
+        <BookmarkElement company = {props.companies[0]}/>,
+        <BookmarkElement company = {props.companies[1]}/>,
+        <BookmarkElement company = {props.companies[2]}/>,
       ]);
 
       const removeElement = (index) => {

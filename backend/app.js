@@ -5,9 +5,13 @@ const PORT = 3001;
 var cors = require('cors');
 app.use(cors())
 
-app.get('/', (req, res)=>{
+app.get('/fakeemail@gmail.com', (req, res)=>{
     res.status(200);
-    res.send("Welcome to root URL of Server");
+    res.send([
+        "The Home Depot",
+        "Delta Airlines",
+        "Chick-fil-A"
+    ]);
 });
 
 app.listen(PORT, (error) =>{

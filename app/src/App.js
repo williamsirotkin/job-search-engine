@@ -13,8 +13,9 @@ function App() {
   const [elements, setElements] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001")
+    axios.get("http://localhost:3001/fakeemail@gmail.com")
     .then((response => {
+        console.log(response.data);
         setElements(response.data)
     }))
     .catch((error) => {
@@ -25,18 +26,17 @@ function App() {
   return (
     <Router>
       <NavBar/>
-      <h2>{elements}</h2>
       <Routes>
       <Route path = "/" element={
           <React.Fragment>
-            <BookmarkedCompanies/>
+            <BookmarkedCompanies companies = {elements}/>
             <IndustriesGrid />
           </React.Fragment>
       }></Route>
 
       <Route path = "/:signedIn" element={
           <React.Fragment>
-            <BookmarkedCompanies/>
+            <BookmarkedCompanies companies = {elements}/>
             <IndustriesGrid/>
           </React.Fragment>
       }></Route>
