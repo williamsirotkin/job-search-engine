@@ -2,6 +2,7 @@ import './App.css';
 import React, {useState, useEffect} from 'react'
 import IndustriesGrid from './IndustriesGrid/IndustriesGrid.js'
 import NavBar from './NavBar/NavBar.js'
+import Footer from './Footer/Footer.js'
 import BookmarkedCompanies from './BookmarkCompaniesRow/BookmarkCompaniesRow.js'
 import SectorComponent from './Sectors/Sector.js'
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
@@ -62,6 +63,7 @@ function App() {
         }></Route>
         
       </Routes>
+      <Footer/>
     </Router>
   );
 }
