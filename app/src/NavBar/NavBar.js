@@ -61,7 +61,6 @@ function Login() {
                 ) : (
                     <GoogleLogin
                         clientId={clientId}
-                        buttonText="Sign in with Google"
                         onSuccess={onSuccess}
                         onFailure={onFailure}
                         cookiePolicy={'single_host_origin'}
@@ -87,7 +86,6 @@ function Login() {
                 ) : (
                     <GoogleLogin
                         clientId={clientId}
-                        buttonText="Sign in with Google"
                         onSuccess={onSuccess}
                         onFailure={onFailure}
                         cookiePolicy={'single_host_origin'}
