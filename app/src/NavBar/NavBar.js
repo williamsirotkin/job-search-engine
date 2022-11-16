@@ -54,19 +54,9 @@ function Login() {
             <h1 class = "title"> Job Search Engine </h1>
             <div class = "login">
             <h3> Welcome {profile.name} </h3>
-                {profile ? (
                     <div>
                         <GoogleLogout clientId={clientId} onLogoutSuccess={logOut} />
                     </div>
-                ) : (
-                    <GoogleLogin
-                        clientId={clientId}
-                        onSuccess={onSuccess}
-                        onFailure={onFailure}
-                        cookiePolicy={'single_host_origin'}
-                        isSignedIn={true}
-                    />
-                )}
             </div>
             <button class= "home"> 
             <Link to ={"/" + profile.email}><img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
@@ -79,19 +69,13 @@ function Login() {
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
             <h1 class = "title"> Job Search Engine </h1>
             <div class = "login">
-                {profile ? (
-                    <div>
-                        <GoogleLogout clientId={clientId} onLogoutSuccess={logOut} />
-                    </div>
-                ) : (
                     <GoogleLogin
                         clientId={clientId}
                         onSuccess={onSuccess}
                         onFailure={onFailure}
                         cookiePolicy={'single_host_origin'}
-                        isSignedIn={true}
+                        isSignedIn={false}
                     />
-                )}
             </div>
             <button class= "home"> 
                 <Link to ={"/" + convertToEmptyOnNull(profile)}> <img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
