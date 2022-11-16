@@ -1,21 +1,32 @@
 import './App.css';
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import IndustriesGrid from './IndustriesGrid/IndustriesGrid.js'
 import NavBar from './NavBar/NavBar.js'
 import BookmarkedCompanies from './BookmarkCompaniesRow/BookmarkCompaniesRow.js'
 import SectorComponent from './Sectors/Sector.js'
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import AddCompany from './AddCompany/AddCompany.js';
-import { loadAuth2WithProps } from 'gapi-script';
+import axios from 'axios';
 
 
 function App() { 
+  const [elements, setElements] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3001")
+    .then((response => {
+        setElements(response.data)
+    }))
+    .catch((error) => {
+        console.log(error);
+    });
+  }, [])
+  
   return (
     <Router>
       <NavBar/>
+      <h2>{elements}</h2>
       <Routes>
-
-
       <Route path = "/" element={
           <React.Fragment>
             <BookmarkedCompanies/>
