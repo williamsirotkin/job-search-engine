@@ -51,8 +51,32 @@ function Login() {
         navigate("/")
     };
 
-    if (profile && profile.name) {
+    if (profile && !profile.name) {
+        logOut()
+    }
+
+
+    if (profile && !profile.name) {
     return (
+        <div class = "navBar">
+        <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
+        <h1 class = "title"> Job Search Engine </h1>
+        <div class = "login">
+                <GoogleLogin
+                    clientId={clientId}
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    cookiePolicy={'single_host_origin'}
+                    isSignedIn={false}
+                />
+        </div>
+        <button class= "home"> 
+            <Link to ={"/" + convertToEmptyOnNull(profile)}> <img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
+        </button>
+    </div>
+    );
+    } else if (profile && profile.name){
+        return (
         <div class = "navBar">
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
             <h1 class = "title"> Job Search Engine </h1>
@@ -63,10 +87,10 @@ function Login() {
                     </div>
             </div>
             <button class= "home"> 
-            <Link to ={"/" + profile.email}><img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
+                <Link to ={"/signedIn"}><img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
             </button>
         </div>
-    );
+        )
 } else {
     return (
         <div class = "navBar">
