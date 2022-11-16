@@ -73,6 +73,8 @@ function BookmarkedCompanies(props) {
             <div class = "message">
                 <br></br>
                 <h1> Sign In Above To Bookmark Companies </h1>
+                <br></br>
+                <br /> <br />
             </div>
         )
             }

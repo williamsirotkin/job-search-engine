@@ -46,7 +46,11 @@
 .message {
 	text-align: center;
 	padding-bottom: 20%;
-	background-image: url("https://i.pinimg.com/originals/d7/18/0c/d7180c9989c6caf0a4aca6038939f13e.jpg");
+	background: url("https://i.pinimg.com/originals/d7/18/0c/d7180c9989c6caf0a4aca6038939f13e.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .view > a {
