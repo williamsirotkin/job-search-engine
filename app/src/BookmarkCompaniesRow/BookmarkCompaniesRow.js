@@ -37,17 +37,17 @@ function BookmarkedCompanies(props) {
     if (params.signedIn) {
     return (
         <div>
-        <h1><center> <u>Your Bookmarked Companies </u></center></h1>
-        <div class = "row">
-            {elements.map((element, index) => (
-                <div key={index}>
-                {element}
-                <button class = "remove" onClick={() => removeElement(index)}> Remove</button>
-                <br />
-                <br />
-                </div>
-            ))}
-        </div>
+            <h1><center> Your Bookmarked Companies </center></h1>
+            <div class = "row">
+                {elements.map((element, index) => (
+                    <div key={index}>
+                    {element}
+                    <button class = "remove" onClick={() => removeElement(index)}> Remove</button>
+                    <br />
+                    <br />
+                    </div>
+                ))}
+            </div>
         </div>
     ) } else {
         return (
