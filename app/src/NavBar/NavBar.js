@@ -31,15 +31,16 @@ function Login() {
 });
 
     const signInChanged = () => {
-        if (profile) {
-            navigate("/signedIn");
-        } else {
+        if (profile && profile.name) {
             navigate('/')
+        } else {
+            navigate('/signedIn')
         }
     } 
 
     const onSuccess = (res) => {
         setProfile(res.profileObj);
+        navigate("/signedIn")
     };
 
     const onFailure = (err) => {
@@ -48,6 +49,7 @@ function Login() {
 
     const logOut = () => {
         setProfile(undefined);
+        console.log("Hello")
         navigate("/")
     };
 
@@ -56,35 +58,18 @@ function Login() {
     }
 
 
-    if (profile && !profile.name) {
-    return (
-        <div class = "navBar">
-        <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
-        <h1 class = "title"> Job Search Engine </h1>
-        <div class = "login">
-                <GoogleLogin
-                    clientId={clientId}
-                    onSuccess={onSuccess}
-                    onFailure={onFailure}
-                    cookiePolicy={'single_host_origin'}
-                    isSignedIn={false}
-                />
-        </div>
-        <button class= "home"> 
-            <Link to ={"/" + convertToEmptyOnNull(profile)}> <img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
-        </button>
-    </div>
-    );
-    } else if (profile && profile.name){
+    if (profile && profile.name){
         return (
         <div class = "navBar">
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
             <h1 class = "title"> Job Search Engine </h1>
             <div class = "login">
             <h3> Welcome {profile.name.substring(0, profile.name.indexOf(" "))} </h3>
+            <Link to = "/">
                     <div>
-                        <Link to = "/"><GoogleLogout clientId={clientId} onLogoutSuccess={logOut} /></Link>
+                        <GoogleLogout to = "/" clientId={clientId} onLogoutSuccess={logOut} />
                     </div>
+                    </Link>
             </div>
             <button class= "home"> 
                 <Link to ={"/signedIn"}><img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
@@ -97,6 +82,7 @@ function Login() {
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
             <h1 class = "title"> Job Search Engine </h1>
             <div class = "login">
+            <Link to = "/">
                     <GoogleLogin
                         clientId={clientId}
                         onSuccess={onSuccess}
@@ -104,6 +90,7 @@ function Login() {
                         cookiePolicy={'single_host_origin'}
                         isSignedIn={false}
                     />
+                    </Link>
             </div>
             <button class= "home"> 
                 <Link to ={"/" + convertToEmptyOnNull(profile)}> <img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
