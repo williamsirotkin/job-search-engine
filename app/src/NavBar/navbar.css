@@ -7,6 +7,10 @@
 	color: white;
 }
 
+.navBar h1 {
+	padding-left: 25%;
+	padding-right: 25%;
+}
 .title {
 	margin-left: 1%;
 	font-size: 2vw;
@@ -35,7 +39,6 @@
 
 .login {
 	display: flex;
-	padding-left: 50%;
 }
 
 .home {
@@ -71,4 +74,12 @@ a:visted {
 .welcome {
 	margin-left: 50%;
 }
+
+.home img{
+	width: 20px;
+	height: 20px;
+
+}
+
+
 

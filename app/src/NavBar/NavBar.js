@@ -70,7 +70,7 @@ function Login() {
                 )}
             </div>
             <button class= "home"> 
-            <Link to ={"/" + profile.email}> Home </Link>
+            <Link to ={"/" + profile.email}><img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
             </button>
         </div>
     );
@@ -96,7 +96,7 @@ function Login() {
                 )}
             </div>
             <button class= "home"> 
-                <Link to ={"/" + convertToEmptyOnNull(profile)}> Home </Link>
+                <Link to ={"/" + convertToEmptyOnNull(profile)}> <img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
             </button>
         </div>
     );
