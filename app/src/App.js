@@ -21,6 +21,11 @@ function App() {
     }
   }
 
+  const [signedIn, setSignedIn] = useState([]);
+  const getSignedIn = (signedIn)  => {
+    
+  }
+
  
   return (
     <Router>
@@ -28,7 +33,7 @@ function App() {
       <Routes>
       <Route path = "/" element={
           <React.Fragment>
-            <BookmarkedCompanies companies = {companies}/>
+            <BookmarkedCompanies companies = {companies} signedIn = {signedIn}/>
             <IndustriesGrid />
           </React.Fragment>
       }></Route>

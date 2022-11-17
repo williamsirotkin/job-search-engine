@@ -4,6 +4,20 @@ import './Sector.css'
 import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-router-dom";
 import axios from 'axios'
 
+function bookmarkCompany(email, company) {
+    axios({
+        url: "http://localhost:3001/create", 
+        data: {"email": email, "company": company},
+        method: "post"
+    })
+    .then((response => {
+        console.log(response.data);
+    }))
+    .catch((error) => {
+        console.log("ERROR" + error);
+    });
+}
+
 function JobElement(props) {
     console.log(props.signedIn)
     if (props.signedIn) {
@@ -12,7 +26,7 @@ function JobElement(props) {
             <h3> {props.name} </h3>
             <button class = "view"> <a target="_blank" href ={"http://google.com/search?q=jobs+" + props.name}> View Jobs </a></button>
             <Link class = "edit-item" to ={"/addCompany/" + props.name + "/" + props.sector}><button class = "edit">Edit Item </button></Link>
-            <button class = "bookmark" onClick={() => alert("Bookmarked!!")}> Bookmark </button>
+            <button class = "bookmark" onClick={bookmarkCompany("wks91744@uga.edu", props.name)}> Bookmark </button>
         </div>
     )
     }
