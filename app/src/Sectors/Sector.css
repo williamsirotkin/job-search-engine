@@ -18,14 +18,29 @@
 }
 
 .applyStack > .view {
-	background-color:#44c767;
-	display:inline-block;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:100%;
-	text-decoration:none;
-    margin-bottom: 1.5%;
+	
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 900;
+	padding: 1.25rem 2.5rem;
+	font-size: 1rem;
+	border-radius: 3.5rem / 100%;
+	position: relative;
+	min-width: 15rem;
+	max-width: 90vw;
+	overflow: hidden;
+	border: 0;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	background-color : blue;
+	color:  orange;
+	transition:0.5s;
 }
+
+.view:hover{
+	color: blue;
+	background-color:orange;
+  }
 
 .edit-item {
 	margin: 1%
