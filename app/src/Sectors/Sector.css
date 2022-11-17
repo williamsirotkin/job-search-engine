@@ -25,6 +25,20 @@
 	font-size:100%;
 	text-decoration:none;
     margin-bottom: 1.5%;
+	font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  padding: 1.25rem 2.5rem;
+  font-size: 1rem;
+  border-radius: 3.5rem / 100%;
+  position: relative;
+  min-width: 15rem;
+  max-width: 90vw;
+  overflow: hidden;
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition:0.5s;
 }
 
 .edit-item {
@@ -39,10 +53,25 @@
 	font-size:100%;
 	text-decoration:none;
     margin-bottom: 1.5%;
+	font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  padding: 1.25rem 2.5rem;
+  font-size: 1rem;
+  border-radius: 3.5rem / 100%;
+  position: relative;
+  min-width: 15rem;
+  max-width: 90vw;
+  overflow: hidden;
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition:0.5s;
 }
 
 .view > a {
 	color: white;
+	
 }
 
 .topRow {
@@ -50,9 +79,27 @@
 }
 
 .add {
-	font-size: 0.75vw;
-	color: white;
+	font-size: 100%;
+	display:inline-block;
+	color:#ffffff;
+	font-size:100%;
+	text-decoration:none;
 	background-color: rgb(183, 50, 81);
+	font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  padding: 1.25rem 2.5rem;
+  font-size: 1rem;
+  border-radius: 3.5rem / 100%;
+  position: relative;
+  min-width: 15rem;
+  max-width: 90vw;
+  overflow: hidden;
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition:0.5s;
+	
 }
 
 .add2 {
@@ -63,10 +110,24 @@
 	background-color: rgb(71, 195, 236);
 	display:inline-block;
 	color:#ffffff;
-	font-family:Arial;
 	font-size:100%;
 	text-decoration:none;
     margin-bottom: 1.5%;
+	font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  padding: 1.25rem 2.5rem;
+  font-size: 1rem;
+  border-radius: 3.5rem / 100%;
+  position: relative;
+  min-width: 15rem;
+  max-width: 90vw;
+  overflow: hidden;
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition:0.5s;
+
 }
 
 .sector-title {
@@ -88,3 +149,16 @@
 .center {
 	text-align: center;
 }
+
+.bookmark:hover {
+	background-color: blue;
+}
+
+.view:hover {
+	background-color: blue;
+}
+
+.edit:hover {
+	background-color: blue;
+}
+

@@ -69,7 +69,7 @@ function SectorComponent() {
       return (
         <div class = "center">
         <h1 class = "sector-title"> <u>{props.sector} Sector </u></h1>
-        <Link class = "add-company" to ={"/addCompany/add/" + props.sector}><button> Add a Company To This List </button></Link>
+        <Link class = "add-company" to ={"/addCompany/add/" + props.sector}><button class = "add">  Add a Company To This List </button></Link>
         <h2>{elements}</h2>
         </div>
       )
