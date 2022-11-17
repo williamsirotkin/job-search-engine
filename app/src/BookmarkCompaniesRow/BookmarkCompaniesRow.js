@@ -17,6 +17,8 @@ function BookmarkElement(props) {
         <div class = "bookmarkStack">
             <h2> {props.company} </h2>
             <button class = "view"> <a target="_blank" href = {"https://google.com/search?q=jobs+" + jobName}> View Jobs </a></button>
+            <br></br>
+            <button class = "remove"> Remove</button>
         </div>
     )
 }
@@ -24,7 +26,7 @@ function BookmarkElement(props) {
 function BookmarkCluster(props) {
 
     return (
-        <div>
+        <div class = "companyRow">
              {props.companies.map((i) => (
                 console.log("Company : " + i),
                     <BookmarkElement company = {i} signedIn = {props.signedIn}/>     
@@ -61,7 +63,6 @@ function BookmarkedCompanies(props) {
                 {elements.map((element, index) => (
                     <div key={index}>
                     {element}
-                    <button class = "remove" onClick={() => removeElement(index)}> Remove</button>
                     <br />
                     <br />
                     </div>

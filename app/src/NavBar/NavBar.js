@@ -25,8 +25,15 @@ function Login(props) {
                 scope: ''
             });
             if (profile && profile.email) {
-                props.getEmail(profile.email)
                 console.log("got the email: " + profile.email)
+                axios.get("http://localhost:3001/email/" + profile.email)
+                .then((response => {
+                    console.log(response.data);
+                    props.getCompanies(response.data)
+                }))
+                .catch((error) => {
+                    console.log(error);
+                });
             } else if (profile) {
                 logOut()
             }
@@ -38,11 +45,13 @@ function Login(props) {
 });
 
     const signInChanged = () => {
+        /*
         if ((profile && !profile.name) || !profile) {
             navigate('/')
         } else {
             navigate('/signedIn')
         }
+        */
     } 
 
     const onSuccess = (res) => {

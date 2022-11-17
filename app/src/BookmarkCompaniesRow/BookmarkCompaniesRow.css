@@ -3,7 +3,7 @@
     justify-content: space-evenly;
     text-align: center;
 	padding-bottom: 20%;
-	background-image: url("https://i.pinimg.com/originals/d7/18/0c/d7180c9989c6caf0a4aca6038939f13e.jpg");
+	/*(background-image: url("https://i.pinimg.com/originals/d7/18/0c/d7180c9989c6caf0a4aca6038939f13e.jpg");*/
 }
 
 .link {
@@ -65,4 +65,8 @@
 .hi center {
 	font-family: "Lucida Console", "Courier New", monospace;
 	color: red;
+}
+
+.companyRow {
+	display: flex;
 }

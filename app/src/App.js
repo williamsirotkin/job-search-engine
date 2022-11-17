@@ -9,27 +9,22 @@ import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import AddCompany from './AddCompany/AddCompany.js';
 import axios from 'axios';
 
+let bookmarkCallCompleted = false; 
 
 function App() { 
-  const [elements, setElements] = useState([]);
   const [companies, setCompanies] = useState([]);
-  const getEmail = (email) =>  {
-    console.log(email);
-    setElements(email);
-      axios.get("http://localhost:3001/email/" + elements)
-      .then((response => {
-          console.log(response.data);
-          setCompanies(response.data)
-      }))
-      .catch((error) => {
-          console.log(error);
-      });
-}
+  const getCompanies = (Companies) =>  {
+    console.log(Companies);
+    if (!bookmarkCallCompleted) {
+      setCompanies(Companies);
+      bookmarkCallCompleted = true;
+    }
+  }
 
  
   return (
     <Router>
-      <NavBar getEmail = {getEmail}/>
+      <NavBar getCompanies = {getCompanies}/>
       <Routes>
       <Route path = "/" element={
           <React.Fragment>
