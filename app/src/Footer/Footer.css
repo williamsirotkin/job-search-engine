@@ -1,3 +1,8 @@
-.container {
-    background-color: grey;
+.foot {
+    display: grid;
+	place-items: center;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 75px;
+	background-color: lightskyblue;
+	color: white;
 }

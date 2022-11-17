@@ -1,8 +1,12 @@
-
+import './Footer.css'
 function Footer () {
-    <div class = "container">
-        
-    </div>
+    return(
+        <div class = "foot">
+            <h4>Timothy Hall</h4>
+            <h4>William Sirotkin</h4>
+            <h4>Marc Silverman</h4>
+        </div>
+    )
 }
 
 export default Footer;
