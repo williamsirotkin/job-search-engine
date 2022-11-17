@@ -40,7 +40,7 @@ function JobElement(props) {
 
 function JobCluster(props) {
     return (
-        <div>
+        <div class = "jobContainer">
             {props.names.map((i) => (
                 console.log(i),
         <JobElement email = {props.email} sector = {props.sector} name = {i} signedIn = {props.signedIn}/>     

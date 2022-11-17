@@ -162,3 +162,7 @@
 	background-color: blue;
 }
 
+.jobContainer  {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
