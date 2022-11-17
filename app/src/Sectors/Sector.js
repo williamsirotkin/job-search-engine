@@ -82,16 +82,16 @@ function SectorComponent() {
       if (props.signedIn) {
       return (
         <div class = "center">
-        <h1 class = "sector-title"> <u>{props.sector} Sector </u></h1>
-        <Link class = "add-company" to ={"/addCompany/add/" + props.sector}><button class = "add">  Add a Company To This List </button></Link>
-        <h2>{elements}</h2>
+            <h1 class = "sector-title"> <u>{props.sector} Sector </u></h1>
+            <Link class = "add-company" to ={"/addCompany/add/" + props.sector}><button class = "add">  Add a Company To This List </button></Link>
+            <h2>{elements}</h2>
         </div>
       )
       } else {
         return (
             <div class = "center">
-            <h1 class = "sector-title"> <u>{props.sector} Sector </u></h1>
-            <h2>{elements}</h2>
+                <h1 class = "sector-title"> <u>{props.sector} Sector </u></h1>
+                <h2>{elements}</h2>
             </div>
           )
       }
