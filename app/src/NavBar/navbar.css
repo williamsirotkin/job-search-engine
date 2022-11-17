@@ -1,8 +1,8 @@
 .navBar {
-    display: flex;
-	grid-template-columns: 45% 45% 10%;
-	grid-template-rows: 50%;
-	padding-top: 0.5%;
+    display: grid;
+	place-items: center;
+	grid-template-columns: 10% 30% 20% 15% 15% 10%;
+	grid-template-rows: 100px;
 	background-color: lightskyblue;
 	color: white;
 }
@@ -12,8 +12,8 @@
 	padding-right: 25%;
 }
 .title {
-	margin-left: 1%;
 	font-size: 2vw;
+	width: 100%;
 }
 
 
@@ -23,20 +23,18 @@
 }
 
 .login {
-	display: flex;
+	object-fit: contain;
+	width: 50%;
+	max-height: 50%;
 }
 
 .home {
-	position:relative;
-	top:1px;
 	background-color: white;
-	height: 0%;
-	padding: 1%;
-	color: black;
-	font-size: 16px;
-	border: none;
 	cursor: pointer;
+	border: none;
 	border-radius: 5px;
+	width: 40%;
+	max-height: 60%;
 }
 
 a {
@@ -51,9 +49,9 @@ a:visted {
 
 
 .logo {
-    width: 5%;
-	padding-bottom: 1%;
-	padding-left: 1%;
+	object-fit: contain;
+	width: 70%;
+	max-height: 70%;
 }
 
 .welcome {
@@ -61,8 +59,7 @@ a:visted {
 }
 
 .home img{
-	width: 20px;
-	height: 20px;
+	width: 100%;
 
 }
 
