@@ -42,6 +42,10 @@ function BookmarkedCompanies(props) {
     if (params.signedIn) {
         SignedIn += params.signedIn;
     }
+
+    const [showBookmarks, setShowBookmarks] = useState([
+       
+    ]);
     const [elements, setElements] = useState([
         <BookmarkCluster companies = {props.companies} signedIn = {SignedIn}/>
       ]);
@@ -56,20 +60,10 @@ function BookmarkedCompanies(props) {
       }
       */
     if (params.signedIn) {
-    return (
-        <div>
-            <h1><center> Your Bookmarked Companies </center></h1>
-            <div class = "row">
-                {elements.map((element, index) => (
-                    <div key={index}>
-                    {element}
-                    <br />
-                    <br />
-                    </div>
-                ))}
-            </div>
-        </div>
-    ) } else {
+        return (
+        <Companies companies = {props.companies}/>
+        )
+     } else {
         return (
             <div class = "message">
                 <br></br>
@@ -79,6 +73,23 @@ function BookmarkedCompanies(props) {
             </div>
         )
             }
+}
+
+function Companies(props) {
+    return (
+    <div>
+            <h1><center> Your Bookmarked Companies </center></h1>
+            <div class = "row">
+                {props.companies.map((element, index) => (
+                    <div key={index}>
+                    {element}
+                    <br />
+                    <br />
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
 }
 
 export default BookmarkedCompanies;
