@@ -1,15 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoPractice = require('./mongo');
+const mongo = require('./mongo');
 
+var cors = require('cors')
 
 const app = express();
 
+app.use(cors())
+
 app.use(bodyParser.json());
 
-app.post('/email/create', mongoPractice.createBookmarks);
+app.post('/create', mongo.createBookmarks);
 
-app.get('/email/get', mongoPractice.getBookmarks);
+app.post('/get', mongo.getBookmarks);
 
 app.listen(3001);
 

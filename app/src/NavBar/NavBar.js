@@ -26,13 +26,22 @@ function Login(props) {
             });
             if (profile && profile.email) {
                 console.log("got the email: " + profile.email)
-                axios.get("http://localhost:3001/email/" + profile.email)
+                axios({
+                    url: "http://localhost:3001/get", 
+                    data: {"email": profile.email},
+                    method: "post"
+                })
                 .then((response => {
                     console.log(response.data);
-                    props.getCompanies(response.data)
+                    let companyArr = []
+                    for (let i = 0; i < response.data.length; i++) {
+                        companyArr.push(response.data[i].company)
+                    }
+                    console.log("companyArr" + companyArr)
+                    props.getCompanies(companyArr)
                 }))
                 .catch((error) => {
-                    console.log(error);
+                    console.log("ERROR" + error);
                 });
             } else if (profile) {
                 logOut()
