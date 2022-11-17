@@ -68,8 +68,6 @@ function BookmarkedCompanies(props) {
             <div class = "message">
                 <br></br>
                 <h1> Sign In Above To Bookmark Companies </h1>
-                <br></br>
-                <br /> <br />
             </div>
         )
             }
@@ -83,8 +81,6 @@ function Companies(props) {
                 {props.companies.map((element, index) => (
                     <div key={index}>
                     <BookmarkElement company = {element} signedIn = "signedIn"/>
-                    <br />
-                    <br />
                     </div>
                 ))}
             </div>
