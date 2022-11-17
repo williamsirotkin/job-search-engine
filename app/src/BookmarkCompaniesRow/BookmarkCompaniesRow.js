@@ -82,7 +82,7 @@ function Companies(props) {
             <div class = "row">
                 {props.companies.map((element, index) => (
                     <div key={index}>
-                    {element}
+                    <BookmarkElement company = {element} signedIn = "signedIn"/>
                     <br />
                     <br />
                     </div>
