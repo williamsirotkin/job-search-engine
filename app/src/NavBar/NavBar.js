@@ -78,14 +78,15 @@ function Login(props) {
         return (
         <div class = "navBar">
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
+            <div></div>
             <h1 class = "title"> Job Search Engine </h1>
-            <div class = "login">
             <h3> Welcome {profile.name.substring(0, profile.name.indexOf(" "))} </h3>
-            <Link to = "/">
-                    <div>
-                        <GoogleLogout to = "/" clientId={clientId} onLogoutSuccess={logOut} />
-                    </div>
-                    </Link>
+            <div>
+                <Link to = "/" class = "login">
+                        <div>
+                            <GoogleLogout to = "/" clientId={clientId} onLogoutSuccess={logOut} />
+                        </div>
+                </Link>
             </div>
             <button class= "home"> 
                 <Link to ={"/signedIn"}><img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
