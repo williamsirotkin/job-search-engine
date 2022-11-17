@@ -9,7 +9,7 @@ function convertToEmptyOnNull(str) {
     if (str == null || str == undefined) {
         return ""
     }
-    return "signedIn"
+    return str.email
 }
 
 function Login(props) {
@@ -65,7 +65,7 @@ function Login(props) {
 
     const onSuccess = (res) => {
         setProfile(res.profileObj);
-        navigate("/signedIn")
+        navigate("/" + res.profileObj.email)
     };
 
     const onFailure = (err) => {

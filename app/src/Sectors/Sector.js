@@ -26,7 +26,7 @@ function JobElement(props) {
             <h3> {props.name} </h3>
             <button class = "view"> <a target="_blank" href ={"http://google.com/search?q=jobs+" + props.name}> View Jobs </a></button>
             <Link class = "edit-item" to ={"/addCompany/" + props.name + "/" + props.sector}><button class = "edit">Edit Item </button></Link>
-            <button class = "bookmark" onClick={bookmarkCompany("wks91744@uga.edu", props.name)}> Bookmark </button>
+            <button class = "bookmark" onClick={bookmarkCompany(props.email, props.name)}> Bookmark </button>
         </div>
     )
     }
@@ -43,7 +43,7 @@ function JobCluster(props) {
         <div>
             {props.names.map((i) => (
                 console.log(i),
-        <JobElement sector = {props.sector} name = {i} signedIn = {props.signedIn}/>     
+        <JobElement email = {props.email} sector = {props.sector} name = {i} signedIn = {props.signedIn}/>     
         ))}
         </div>
     )
@@ -65,7 +65,7 @@ function SectorComponent() {
         for (let i = 0; i < response.data.companies.length; i++) {
             companies.push(response.data.companies[i].name);
         }
-        setElements(<JobCluster sector = {props.sector} names = {companies} signedIn = {SignedIn}/>)
+        setElements(<JobCluster email = {props.email} sector = {props.sector} names = {companies} signedIn = {SignedIn}/>)
         console.log("Look here" + companies[0]);
     }))
     .catch((error) => {
