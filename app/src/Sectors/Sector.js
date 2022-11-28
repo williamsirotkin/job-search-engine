@@ -4,6 +4,7 @@ import './Sector.css'
 import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-router-dom";
 import axios from 'axios'
 
+
 function bookmarkCompany(email, company) {
     axios({
         url: "http://localhost:3001/create", 
@@ -26,7 +27,7 @@ function JobElement(props) {
             <h3> {props.name} </h3>
             <button class = "view"> <a target="_blank" href ={"http://google.com/search?q=jobs+" + props.name}> View Jobs </a></button>
             <Link class = "edit-item" to ={"/addCompany/" + props.name + "/" + props.sector}><button class = "edit">Edit Item </button></Link>
-            <button class = "bookmark" onClick={bookmarkCompany(props.email, props.name)}> Bookmark </button>
+            <button class = "bookmark" onClick={() => bookmarkCompany(props.email, props.name)}> Bookmark </button>
         </div>
     )
     }
@@ -65,7 +66,7 @@ function SectorComponent() {
         for (let i = 0; i < response.data.companies.length; i++) {
             companies.push(response.data.companies[i].name);
         }
-        setElements(<JobCluster email = {props.email} sector = {props.sector} names = {companies} signedIn = {SignedIn}/>)
+        setElements(<JobCluster email = {props.signedIn} sector = {props.sector} names = {companies} signedIn = {SignedIn}/>)
         console.log("Look here" + companies[0]);
     }))
     .catch((error) => {
