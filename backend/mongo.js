@@ -15,7 +15,7 @@ const deleteBookmark = async (req, res, next) => {
     const error = 'Something went wrong, could not find bookmark.' + email + company;
     return next(error);
   }
-  res.status(200).json({ message: 'Deleted bookmark: '});
+  res.status(200).json({ message: 'Deleted bookmark: ' + email + company});
 };
 
 const createBookmarks = async (req, res, next) => {

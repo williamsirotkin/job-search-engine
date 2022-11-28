@@ -17,6 +17,7 @@ function deleteBookmark(email, company) {
     .catch((error) => {
         console.log("ERROR" + error);
     });
+    console.log("delete")
 } 
 
 function BookmarkElement(props) {
@@ -34,7 +35,7 @@ function BookmarkElement(props) {
             <h2> {props.company} </h2>
             <button class = "view"> <a target="_blank" href = {"https://google.com/search?q=jobs+" + jobName}> View Jobs </a></button>
             <br></br>
-            <button class = "remove" onClick = {() => deleteBookmark(props.signedIn, props.company)}> Remove</button>
+            <button class = "remove" onClick = {() => deleteBookmark(params.signedIn, props.company)}> Remove</button>
         </div>
     )
 }
