@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 
 app.post('/create', mongo.createBookmarks);
 
+app.delete('/delete', mongo.deleteBookmark);
+
 app.post('/get', mongo.getBookmarks);
 
 app.listen(3001);

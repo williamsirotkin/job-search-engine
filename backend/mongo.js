@@ -2,6 +2,22 @@ const MongoClient = require('mongodb').MongoClient;
 
 const url = 'mongodb+srv://job-search-board:job-search-board@cluster0.auprpwn.mongodb.net/job-search-board?retryWrites=true&w=majority';
 
+const deleteBookmark = async (req, res, next) => {
+  const email = req.body.email;
+  const company = req.body.company;
+  const client = new MongoClient(url);
+  let bookmark;
+  try {
+    await client.connect();
+    const db = client.db();
+    db.collection('bookmarked').deleteOne({"email": email, "company": company});
+  } catch (err) {
+    const error = 'Something went wrong, could not find bookmark.' + email + company;
+    return next(error);
+  }
+  res.status(200).json({ message: 'Deleted bookmark: '});
+};
+
 const createBookmarks = async (req, res, next) => {
   const newBookmark = {
     email: req.body.email,
@@ -42,3 +58,4 @@ const getBookmarks = async (req, res, next) => {
 
 exports.createBookmarks = createBookmarks;
 exports.getBookmarks = getBookmarks;
+exports.deleteBookmark = deleteBookmark;

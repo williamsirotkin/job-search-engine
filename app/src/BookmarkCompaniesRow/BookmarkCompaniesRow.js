@@ -2,6 +2,22 @@ import React from 'react';
 import { useState } from 'react';
 import './BookmarkCompaniesRow.css'
 import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-router-dom";
+import axios from 'axios';
+
+
+function deleteBookmark(email, company) {
+    axios({
+        url: "http://localhost:3001/delete", 
+        data: {"email": email, "company": company},
+        method: "delete"
+    })
+    .then((response => {
+        console.log(response.data);
+    }))
+    .catch((error) => {
+        console.log("ERROR" + error);
+    });
+} 
 
 function BookmarkElement(props) {
     let params = useParams();
@@ -18,7 +34,7 @@ function BookmarkElement(props) {
             <h2> {props.company} </h2>
             <button class = "view"> <a target="_blank" href = {"https://google.com/search?q=jobs+" + jobName}> View Jobs </a></button>
             <br></br>
-            <button class = "remove"> Remove</button>
+            <button class = "remove" onClick = {() => deleteBookmark(props.signedIn, props.company)}> Remove</button>
         </div>
     )
 }

@@ -98,7 +98,7 @@ function Login(props) {
                 </Link>
             </div>
             <button class= "home"> 
-                <Link to ={"/signedIn"}><img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
+                <Link to ={"/" + profile.email}><img src="https://cdn-icons-png.flaticon.com/512/15/15766.png" alt = "home"/> </Link>
             </button>
         </div>
         )
