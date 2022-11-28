@@ -46,11 +46,13 @@
 	margin-bottom: -2.3%;
 	text-align: center;
 	padding-bottom: 20%;
-	background: url("https://i.pinimg.com/originals/d7/18/0c/d7180c9989c6caf0a4aca6038939f13e.jpg") no-repeat center center fixed; 
+	background: url("https://i.pinimg.com/originals/d7/18/0c/d7180c9989c6caf0a4aca6038939f13e.jpg") no-repeat center center; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	height: 100%;
+	width: 100%;
 }
 
 .view > a {
