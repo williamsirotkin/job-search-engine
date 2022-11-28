@@ -72,15 +72,3 @@
 .companyRow {
 	display: flex;
 }
-
-.container h1 {
-	color: yellow;
-	font-family: 'Times New Roman', Times, serif;
-}
-
-.container {
-	background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4QZXkg4-KtJdK02JcLcXIPunYMa0rDJ-RwQ&usqp=CAU");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-	margin: auto;
-}
