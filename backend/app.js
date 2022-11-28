@@ -16,6 +16,10 @@ app.delete('/delete', mongo.deleteBookmark);
 
 app.post('/get', mongo.getBookmarks);
 
+app.post('/addCompany', mongo.addCompany);
+
+app.get('/getAddedCompanies', mongo.getAddedCompanies)
+
 app.listen(3001);
 
 // const express = require('express');

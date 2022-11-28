@@ -56,6 +56,46 @@ const getBookmarks = async (req, res, next) => {
   res.json(bookmarks);
 };
 
+const addCompany = async (req, res, next) => {
+  const newCompany = {
+    company: req.body.company
+  };
+  const client = new MongoClient(url);
+
+  try {
+    await client.connect();
+    const db = client.db();
+    const result = db.collection('companies').insertOne(newCompany);
+  } catch (error) {
+    return res.json({message: 'Could not store data.'});
+  };
+
+  setTimeout(() => {client.close()}, 1500)
+
+  res.json(newCompany);
+};
+const getAddedCompanies = async (req, res, next) => {
+  const client = new MongoClient(url);
+
+  let addedCompanies;
+
+  try {
+    await client.connect();
+    const db = client.db();
+    addedCompanies = await db.collection('companies').find().toArray();
+  } catch (error) {
+    console.log(error)
+    return res.json({message: 'Could not retrieve products!'});
+  };
+  client.close();
+
+  res.json(addedCompanies);
+};
+
+
+
 exports.createBookmarks = createBookmarks;
 exports.getBookmarks = getBookmarks;
 exports.deleteBookmark = deleteBookmark;
+exports.addCompany = addCompany;
+exports.getAddedCompanies = getAddedCompanies;

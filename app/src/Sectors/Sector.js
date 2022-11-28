@@ -66,8 +66,17 @@ function SectorComponent() {
         for (let i = 0; i < response.data.companies.length; i++) {
             companies.push(response.data.companies[i].name);
         }
-        setElements(<JobCluster email = {props.signedIn} sector = {props.sector} names = {companies} signedIn = {SignedIn}/>)
-        console.log("Look here" + companies[0]);
+        axios.get("http://localhost:3001/getAddedCompanies")
+        .then((response => {
+            console.log("abc: " + response.data[0])
+            for (let i = 0; i < response.data.length; i++) {
+                companies.push(response.data[i].company);
+            }
+            setElements(<JobCluster email = {props.signedIn} sector = {props.sector} names = {companies} signedIn = {SignedIn}/>)
+            console.log("Look here" + companies[0]);
+        })) .catch((error) => {
+                console.log(error);
+        });
     }))
     .catch((error) => {
         console.log(error);
