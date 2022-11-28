@@ -46,11 +46,13 @@
 	margin-bottom: -2.3%;
 	text-align: center;
 	padding-bottom: 20%;
-	background: url("https://i.pinimg.com/originals/d7/18/0c/d7180c9989c6caf0a4aca6038939f13e.jpg") no-repeat center center fixed; 
+	background: url("https://i.pinimg.com/originals/d7/18/0c/d7180c9989c6caf0a4aca6038939f13e.jpg") no-repeat center center; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	height: 100%;
+	width: 100%;
 }
 
 .view > a {
@@ -69,4 +71,16 @@
 
 .companyRow {
 	display: flex;
+}
+
+.container h1 {
+	color: yellow;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+	background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4QZXkg4-KtJdK02JcLcXIPunYMa0rDJ-RwQ&usqp=CAU");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+	margin: auto;
 }
