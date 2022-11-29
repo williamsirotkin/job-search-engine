@@ -16,10 +16,6 @@ function AddCompany() {
             <h3> Company Name </h3>
             <input class = "company-name" type="text" name="name" />   
         </div>
-        <div class = "description-row">
-            <h3> Description </h3>
-            <input class = "description" type="text" name="name" />  
-        </div>
         <br></br>
         <Link to ="/signedIn"><button class = "submit"> Submit </button></Link>
         </div>
@@ -32,10 +28,6 @@ function AddCompany() {
         <div class ="company-name-row">
             <h3> Company Name </h3>
             <input class = "company-name" type="text" name="name" />   
-        </div>
-        <div class = "description-row">
-            <h3> Description </h3>
-            <input class = "description" type="text" name="name" />  
         </div>
         <br></br>
         <Link to ="/signedIn"><button class = "submit"> Submit </button></Link>
