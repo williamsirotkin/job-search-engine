@@ -72,3 +72,19 @@
 .companyRow {
 	display: flex;
 }
+
+.bookmark-container h1 {
+	color: yellow;
+	font-family: 'Times New Roman', Times, serif;
+	margin: auto;
+}
+
+.bookmark-container {
+	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.4)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4QZXkg4-KtJdK02JcLcXIPunYMa0rDJ-RwQ&usqp=CAU");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;	
+}
+
+.bookmarkStack h2 {
+	color: white;
+}
