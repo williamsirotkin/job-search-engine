@@ -7,3 +7,15 @@
 	color: white;
 }
 
+.foot > a {
+	color: black;
+	text-decoration: underline;
+
+}
+
+.foot > a:hover {
+	color: white;
+	text-decoration: underline;
+
+}
+
