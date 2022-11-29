@@ -4,10 +4,24 @@ import './AddCompany.css'
 import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-router-dom";
 import axios from 'axios';
 
-function addCompany(name) {
+function addCompany(name, sector) {
     axios({
         url: "http://localhost:3001/addCompany", 
-        data: {"company": name},
+        data: {"company": name, "sector": sector},
+        method: "post"
+    })
+    .then((response => {
+        console.log(response.data);
+    }))
+    .catch((error) => {
+        console.log("ERROR" + error);
+    });
+}
+
+function editCompany(oldName, newName, sector) {
+    axios({
+        url: "http://localhost:3001/createModifiedCompany", 
+        data: {"oldName": oldName, "newName": newName, "sector": sector},
         method: "post"
     })
     .then((response => {
@@ -35,7 +49,7 @@ function AddCompany() {
             <input class = "description" type="text" name="name" />  
         </div>
         <br></br>
-        <Link to ="/"><button onClick = {() => addCompany(input)} class = "submit"> Submit </button></Link>
+        <Link to ="/"><button onClick = {() => addCompany(input, params.sector)} class = "submit"> Submit </button></Link>
         </div>
     )
     } else {
@@ -45,14 +59,14 @@ function AddCompany() {
         <h1> Edit {params.edit} </h1><br></br>
         <div class ="company-name-row">
             <h3> Company Name </h3>
-            <input class = "company-name" type="text" name="name" />   
+            <input onChange={event => setInput(event.target.value)} class = "company-name" type="text" name="name" />   
         </div>
         <div class = "description-row">
             <h3> Description </h3>
             <input class = "description" type="text" name="name" />  
         </div>
         <br></br>
-        <Link to ="/"><button class = "submit"> Submit </button></Link>
+        <Link to ="/"><button onClick = {() => editCompany(params.edit, input, params.sector)} class = "submit"> Submit </button></Link>
         </div>
         )
     }

@@ -58,7 +58,8 @@ const getBookmarks = async (req, res, next) => {
 
 const addCompany = async (req, res, next) => {
   const newCompany = {
-    company: req.body.company
+    company: req.body.company,
+    sector: req.body.sector
   };
   const client = new MongoClient(url);
 
@@ -76,13 +77,13 @@ const addCompany = async (req, res, next) => {
 };
 const getAddedCompanies = async (req, res, next) => {
   const client = new MongoClient(url);
-
+  let sector = req.body.sector
   let addedCompanies;
 
   try {
     await client.connect();
     const db = client.db();
-    addedCompanies = await db.collection('companies').find().toArray();
+    addedCompanies = await db.collection('companies').find({"sector": sector}).toArray();
   } catch (error) {
     console.log(error)
     return res.json({message: 'Could not retrieve products!'});
@@ -92,6 +93,46 @@ const getAddedCompanies = async (req, res, next) => {
   res.json(addedCompanies);
 };
 
+const getModifiedCompanies = async (req, res, next) => {
+  const client = new MongoClient(url);
+  let sector = req.body.sector
+  let modifiedCompanies;
+
+  try {
+    await client.connect();
+    const db = client.db();
+    modifiedCompanies = await db.collection('modified-companies').find({"sector": sector}).toArray();
+  } catch (error) {
+    console.log(error)
+    return res.json({message: 'Could not retrieve products!'});
+  };
+  client.close();
+
+  res.json(modifiedCompanies);
+};
+
+const createModifiedCompany = async (req, res, next) => {
+  const newModified = {
+    sector: req.body.sector,
+    oldName: req.body.oldName,
+    newName: req.body.newName
+  };
+  const client = new MongoClient(url);
+
+  try {
+    await client.connect();
+    const db = client.db();
+    const result = db.collection('modified-companies').insertOne(newModified);
+  } catch (error) {
+    return res.json({message: 'Could not store data.'});
+  };
+
+  setTimeout(() => {client.close()}, 1500)
+
+  res.json(newModified);
+};
+
+
 
 
 exports.createBookmarks = createBookmarks;
@@ -99,3 +140,5 @@ exports.getBookmarks = getBookmarks;
 exports.deleteBookmark = deleteBookmark;
 exports.addCompany = addCompany;
 exports.getAddedCompanies = getAddedCompanies;
+exports.createModifiedCompany = createModifiedCompany;
+exports.getModifiedCompanies = getModifiedCompanies;

@@ -18,7 +18,11 @@ app.post('/get', mongo.getBookmarks);
 
 app.post('/addCompany', mongo.addCompany);
 
-app.get('/getAddedCompanies', mongo.getAddedCompanies)
+app.post('/getAddedCompanies', mongo.getAddedCompanies)
+
+app.post('/getModifiedCompanies', mongo.getModifiedCompanies)
+
+app.post('/createModifiedCompany', mongo.createModifiedCompany)
 
 app.listen(3001);
 

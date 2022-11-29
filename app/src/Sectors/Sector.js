@@ -66,14 +66,36 @@ function SectorComponent() {
         for (let i = 0; i < response.data.companies.length; i++) {
             companies.push(response.data.companies[i].name);
         }
-        axios.get("http://localhost:3001/getAddedCompanies")
+        axios({
+            url: "http://localhost:3001/getAddedCompanies/",
+            data: {"sector": props.sector},
+            method: "post"})
         .then((response => {
             console.log("abc: " + response.data[0])
             for (let i = 0; i < response.data.length; i++) {
                 companies.push(response.data[i].company);
             }
-            setElements(<JobCluster email = {props.signedIn} sector = {props.sector} names = {companies} signedIn = {SignedIn}/>)
-            console.log("Look here" + companies[0]);
+            axios({
+                url: "http://localhost:3001/getModifiedCompanies/",
+                data: {"sector": props.sector},
+                method: "post"})
+            .then((response => {
+                console.log("abcd: " + response.data[0])
+                for (let i = 0; i < companies.length; i++) {
+                    console.log(companies.length)
+                    for (let j = 0; j < response.data.length; j++) {
+                        console.log(response.data.length)
+                        console.log("acef " + response.data[j].oldName + ", " + companies[j] + "," + i)
+                        if (companies[i] == response.data[j].oldName) {
+                            companies[i] = response.data[j].newName
+                        }
+                    }
+                }
+                setElements(<JobCluster email = {props.signedIn} sector = {props.sector} names = {companies} signedIn = {SignedIn}/>)
+                console.log("Look here" + companies[0]);
+            })) .catch((error) => {
+                    console.log(error);
+            });
         })) .catch((error) => {
                 console.log(error);
         });
