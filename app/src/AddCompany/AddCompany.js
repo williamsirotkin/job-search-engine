@@ -38,7 +38,7 @@ function AddCompany() {
     if (!params.edit) {
     return (
         <div class = "parent">
-             <Link class = "link-edit" to = {"/sector/" + params.sector + "/signedIn"}><button class = "go-back"> Go Back</button></Link>
+             <Link class = "link-edit" to = {"/sector/" + params.sector + "/" + params.signedIn}><button class = "go-back"> Go Back</button></Link>
         <h1> Add a Company </h1><br></br>
         <div class ="company-name-row">
             <h3> Company Name </h3>
@@ -51,7 +51,7 @@ function AddCompany() {
     } else {
         return (
         <div class = "parent">
-            <Link class = "link-edit" to = {"/sector/" + params.sector + "/signedIn"}><button class = "go-back"> Go Back</button></Link>
+            <Link class = "link-edit" to = {"/sector/" + params.sector + "/" + params.signedIn}><button class = "go-back"> Go Back</button></Link>
         <h1> Edit {params.edit} </h1><br></br>
         <div class ="company-name-row">
             <h3> Company Name </h3>
