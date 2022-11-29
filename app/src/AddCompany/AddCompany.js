@@ -45,7 +45,7 @@ function AddCompany() {
             <input class = "company-name" onChange={event => setInput(event.target.value)} type="text" name="name" />   
         </div>
         <br></br>
-        <Link to ="/"><button onClick = {() => addCompany(input, params.sector)} class = "submit"> Submit </button></Link>
+        <Link to ={"/" + params.signedIn}><button onClick = {() => addCompany(input, params.sector)} class = "submit"> Submit </button></Link>
         </div>
     )
     } else {
@@ -58,7 +58,7 @@ function AddCompany() {
             <input onChange={event => setInput(event.target.value)} class = "company-name" type="text" name="name" />   
         </div>
         <br></br>
-        <Link to ="/"><button onClick = {() => editCompany(params.edit, input, params.sector)} class = "submit"> Submit </button></Link>
+        <Link to ={"/" + params.signedIn}><button onClick = {() => editCompany(params.edit, input, params.sector)} class = "submit"> Submit </button></Link>
         </div>
         )
     }

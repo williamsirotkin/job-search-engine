@@ -5,7 +5,8 @@ import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-rou
 import axios from 'axios'
 
 
-function bookmarkCompany(email, company) {
+function bookmarkCompany(email, company, getCompanies) {
+    alert("Bookmarked " + company)
     axios({
         url: "http://localhost:3001/create", 
         data: {"email": email, "company": company},
@@ -13,6 +14,23 @@ function bookmarkCompany(email, company) {
     })
     .then((response => {
         console.log(response.data);
+        axios({
+            url: "http://localhost:3001/get", 
+            data: {"email": email},
+            method: "post"
+        })
+        .then((response => {
+            console.log(response.data);
+            let companyArr = []
+            for (let i = 0; i < response.data.length; i++) {
+                companyArr.push(response.data[i].company)
+            }
+            console.log("companyArr" + companyArr)
+            getCompanies(companyArr, true)
+        }))
+        .catch((error) => {
+            console.log("ERROR" + error);
+        });
     }))
     .catch((error) => {
         console.log("ERROR" + error);
@@ -26,8 +44,8 @@ function JobElement(props) {
         <div class = "applyStack">
             <h6> {props.name} </h6>
             <button class = "view"> <a target="_blank" href ={"http://google.com/search?q=jobs+" + props.name}> View Jobs </a></button>
-            <Link class = "edit-item" to ={"/addCompany/" + props.name + "/" + props.sector}><button class = "edit">Edit Item </button></Link>
-            <button class = "bookmark" onClick={() => bookmarkCompany(props.email, props.name)}> Bookmark </button>
+            <Link class = "edit-item" to ={"/addCompany/" + props.name + "/" + props.sector + '/' + props.signedIn}><button class = "edit">Edit Item </button></Link>
+            <button class = "bookmark" onClick={() => bookmarkCompany(props.email, props.name, props.getCompanies)}> Bookmark </button>
         </div>
     )
     }
@@ -44,13 +62,13 @@ function JobCluster(props) {
         <div class = "jobContainer">
             {props.names.map((i) => (
                 console.log(i),
-        <JobElement email = {props.email} sector = {props.sector} name = {i} signedIn = {props.signedIn}/>     
+        <JobElement getCompanies = {props.getCompanies} email = {props.email} sector = {props.sector} name = {i} signedIn = {props.signedIn}/>     
         ))}
         </div>
     )
 }
 
-function SectorComponent() {
+function SectorComponent(params) {
     let companies = []
     let props = useParams()
     let SignedIn = "";
@@ -91,7 +109,7 @@ function SectorComponent() {
                         }
                     }
                 }
-                setElements(<JobCluster email = {props.signedIn} sector = {props.sector} names = {companies} signedIn = {SignedIn}/>)
+                setElements(<JobCluster getCompanies = {params.getCompanies} email = {props.signedIn} sector = {props.sector} names = {companies} signedIn = {SignedIn}/>)
                 console.log("Look here" + companies[0]);
             })) .catch((error) => {
                     console.log(error);
@@ -115,7 +133,7 @@ function SectorComponent() {
       return (
         <div class = "center">
             <h1 class = "sector-title"> <u>{props.sector} Sector </u></h1>
-            <Link class = "add-company" to ={"/addCompany/add/" + props.sector}><button class = "add">  Add a Company To This List </button></Link>
+            <Link class = "add-company" to ={"/addCompany/add/" + props.sector + "/" + props.signedIn}><button class = "add">  Add a Company To This List </button></Link>
             <h2>{elements}</h2>
         </div>
       )

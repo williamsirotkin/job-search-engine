@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Routes, Route, Link, useParams} from "react-rou
 import axios from 'axios';
 
 
-function deleteBookmark(email, company) {
+function deleteBookmark(email, company, getCompanies) {
     axios({
         url: "http://localhost:3001/delete", 
         data: {"email": email, "company": company},
@@ -13,6 +13,23 @@ function deleteBookmark(email, company) {
     })
     .then((response => {
         console.log(response.data);
+        axios({
+            url: "http://localhost:3001/get", 
+            data: {"email": email},
+            method: "post"
+        })
+        .then((response => {
+            console.log(response.data);
+            let companyArr = []
+            for (let i = 0; i < response.data.length; i++) {
+                companyArr.push(response.data[i].company)
+            }
+            console.log("companyArr" + companyArr)
+            getCompanies(companyArr, true)
+        }))
+        .catch((error) => {
+            console.log("ERROR" + error);
+        });
     }))
     .catch((error) => {
         console.log("ERROR" + error);
@@ -35,7 +52,7 @@ function BookmarkElement(props) {
             <h2> {props.company} </h2>
             <button class = "view"> <a target="_blank" href = {"https://google.com/search?q=jobs+" + jobName}> View Jobs </a></button>
             <br></br>
-            <button class = "remove" onClick = {() => deleteBookmark(params.signedIn, props.company)}> Remove</button>
+            <button class = "remove" onClick = {() => deleteBookmark(params.signedIn, props.company, props.getCompanies)}> Remove</button>
         </div>
     )
 }
@@ -78,7 +95,7 @@ function BookmarkedCompanies(props) {
       */
     if (params.signedIn) {
         return (
-        <Companies companies = {props.companies}/>
+        <Companies companies = {props.companies} getCompanies = {props.getCompanies}/>
         )
      } else {
         return (
@@ -97,7 +114,7 @@ function Companies(props) {
             <div class = "row">
                 {props.companies.map((element, index) => (
                     <div key={index}>
-                    <BookmarkElement company = {element} signedIn = "signedIn"/>
+                    <BookmarkElement company = {element} signedIn = "signedIn" getCompanies = {props.getCompanies}/>
                     </div>
                 ))}
             </div>

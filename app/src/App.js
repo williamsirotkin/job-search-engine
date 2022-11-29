@@ -13,9 +13,9 @@ let bookmarkCallCompleted = false;
 
 function App() { 
   const [companies, setCompanies] = useState([]);
-  const getCompanies = (Companies) =>  {
+  const getCompanies = (Companies, bookmark) =>  {
     console.log(Companies);
-    if (!bookmarkCallCompleted) {
+    if (!bookmarkCallCompleted || bookmark) {
       setCompanies(Companies);
       bookmarkCallCompleted = true;
     }
@@ -40,7 +40,7 @@ function App() {
 
       <Route path = "/:signedIn" element={
           <React.Fragment>
-            <BookmarkedCompanies companies = {companies}/>
+            <BookmarkedCompanies companies = {companies} getCompanies = {getCompanies}/>
             <IndustriesGrid/>
           </React.Fragment>
       }></Route>
@@ -50,15 +50,15 @@ function App() {
         }></Route>
 
       <Route path = "/sector/:sector/:signedIn" element={
-          <SectorComponent/>
+          <SectorComponent getCompanies = {getCompanies}/>
         }></Route>
 
-        <Route path = "/addCompany/add/:sector" element={
+        <Route path = "/addCompany/add/:sector/:signedIn" element={
           <AddCompany/>
         }></Route>
         
 
-      <Route path = "/addCompany/:edit/:sector" element={
+      <Route path = "/addCompany/:edit/:sector/:signedIn" element={
           <AddCompany/>
         }></Route>
         

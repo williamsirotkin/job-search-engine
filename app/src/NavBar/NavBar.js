@@ -38,7 +38,7 @@ function Login(props) {
                         companyArr.push(response.data[i].company)
                     }
                     console.log("companyArr" + companyArr)
-                    props.getCompanies(companyArr)
+                    props.getCompanies(companyArr, false)
                 }))
                 .catch((error) => {
                     console.log("ERROR" + error);
