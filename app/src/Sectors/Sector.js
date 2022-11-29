@@ -24,7 +24,7 @@ function JobElement(props) {
     if (props.signedIn) {
     return (
         <div class = "applyStack">
-            <h3> {props.name} </h3>
+            <h6> {props.name} </h6>
             <button class = "view"> <a target="_blank" href ={"http://google.com/search?q=jobs+" + props.name}> View Jobs </a></button>
             <Link class = "edit-item" to ={"/addCompany/" + props.name + "/" + props.sector}><button class = "edit">Edit Item </button></Link>
             <button class = "bookmark" onClick={() => bookmarkCompany(props.email, props.name)}> Bookmark </button>
@@ -33,7 +33,7 @@ function JobElement(props) {
     }
     return (
         <div class = "applyStack">
-            <h3> {props.name} </h3>
+            <h6> {props.name} </h6>
             <button class = "view"> <a target="_blank" href ={"http://google.com/search?q=jobs+" + props.name}> View Jobs </a></button>
         </div>
     )

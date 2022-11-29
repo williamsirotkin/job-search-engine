@@ -44,10 +44,6 @@ function AddCompany() {
             <h3> Company Name </h3>
             <input class = "company-name" onChange={event => setInput(event.target.value)} type="text" name="name" />   
         </div>
-        <div class = "description-row">
-            <h3> Description </h3>
-            <input class = "description" type="text" name="name" />  
-        </div>
         <br></br>
         <Link to ="/"><button onClick = {() => addCompany(input, params.sector)} class = "submit"> Submit </button></Link>
         </div>
@@ -60,10 +56,6 @@ function AddCompany() {
         <div class ="company-name-row">
             <h3> Company Name </h3>
             <input onChange={event => setInput(event.target.value)} class = "company-name" type="text" name="name" />   
-        </div>
-        <div class = "description-row">
-            <h3> Description </h3>
-            <input class = "description" type="text" name="name" />  
         </div>
         <br></br>
         <Link to ="/"><button onClick = {() => editCompany(params.edit, input, params.sector)} class = "submit"> Submit </button></Link>

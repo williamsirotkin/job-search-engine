@@ -92,7 +92,7 @@ function BookmarkedCompanies(props) {
 
 function Companies(props) {
     return (
-    <div class = "container">
+    <div>
             <h1 > <center>Your Bookmarked Companies </center> </h1>
             <div class = "row">
                 {props.companies.map((element, index) => (
