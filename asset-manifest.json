@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/job-search-engine/app/static/css/main.c5bcdbb8.css",
+    "main.js": "/job-search-engine/app/static/js/main.6749077e.js",
+    "static/js/787.7efd31bd.chunk.js": "/job-search-engine/app/static/js/787.7efd31bd.chunk.js",
+    "static/media/logo.png": "/job-search-engine/app/static/media/logo.64e75d1bd654b7fa49e9.png",
+    "index.html": "/job-search-engine/app/index.html",
+    "main.c5bcdbb8.css.map": "/job-search-engine/app/static/css/main.c5bcdbb8.css.map",
+    "main.6749077e.js.map": "/job-search-engine/app/static/js/main.6749077e.js.map",
+    "787.7efd31bd.chunk.js.map": "/job-search-engine/app/static/js/787.7efd31bd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c5bcdbb8.css",
+    "static/js/main.6749077e.js"
+  ]
+}
