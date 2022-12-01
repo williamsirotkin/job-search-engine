@@ -8,14 +8,14 @@ import axios from 'axios'
 function bookmarkCompany(email, company, getCompanies) {
     alert("Bookmarked " + company)
     axios({
-        url: "http://localhost:3001/create", 
+        url: "https://backend-ogxg4b6p6a-ue.a.run.app/create", 
         data: {"email": email, "company": company},
         method: "post"
     })
     .then((response => {
         console.log(response.data);
         axios({
-            url: "http://localhost:3001/get", 
+            url: "https://backend-ogxg4b6p6a-ue.a.run.app/get", 
             data: {"email": email},
             method: "post"
         })
@@ -79,22 +79,18 @@ function SectorComponent(params) {
       ]);
       
     useEffect(() => {
-    axios.get("https://api-v2.intrinio.com/companies?sector=" + ensureSectorName(props.sector), { 'headers': { 'Authorization': "Ojg2MzFhNTE2NzFlOGZjZmI5MDQwYjJlZGVkMWE3ZTU3" } })
-    .then((response => {
-        for (let i = 0; i < response.data.companies.length; i++) {
-            companies.push(response.data.companies[i].name);
-        }
         axios({
-            url: "http://localhost:3001/getAddedCompanies/",
+            url: "https://backend-ogxg4b6p6a-ue.a.run.app/getAddedCompanies/",
             data: {"sector": props.sector},
             method: "post"})
         .then((response => {
             console.log("abc: " + response.data[0])
             for (let i = 0; i < response.data.length; i++) {
+                console.log("marc: " + response.data[i].company)
                 companies.push(response.data[i].company);
             }
             axios({
-                url: "http://localhost:3001/getModifiedCompanies/",
+                url: "https://backend-ogxg4b6p6a-ue.a.run.app/getModifiedCompanies/",
                 data: {"sector": props.sector},
                 method: "post"})
             .then((response => {
@@ -117,10 +113,6 @@ function SectorComponent(params) {
         })) .catch((error) => {
                 console.log(error);
         });
-    }))
-    .catch((error) => {
-        console.log(error);
-    });
 }, [])
 
 

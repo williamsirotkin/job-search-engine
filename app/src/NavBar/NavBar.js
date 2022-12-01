@@ -27,7 +27,7 @@ function Login(props) {
             if (profile && profile.email) {
                 console.log("got the email: " + profile.email)
                 axios({
-                    url: "http://localhost:3001/get", 
+                    url: "https://backend-ogxg4b6p6a-ue.a.run.app/get", 
                     data: {"email": profile.email},
                     method: "post"
                 })

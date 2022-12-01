@@ -7,14 +7,14 @@ import axios from 'axios';
 
 function deleteBookmark(email, company, getCompanies) {
     axios({
-        url: "http://localhost:3001/delete", 
+        url: "https://backend-ogxg4b6p6a-ue.a.run.app/delete", 
         data: {"email": email, "company": company},
         method: "delete"
     })
     .then((response => {
         console.log(response.data);
         axios({
-            url: "http://localhost:3001/get", 
+            url: "https://backend-ogxg4b6p6a-ue.a.run.app/get", 
             data: {"email": email},
             method: "post"
         })

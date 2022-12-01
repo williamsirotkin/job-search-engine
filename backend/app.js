@@ -24,7 +24,7 @@ app.post('/getModifiedCompanies', mongo.getModifiedCompanies)
 
 app.post('/createModifiedCompany', mongo.createModifiedCompany)
 
-app.listen(3001);
+app.listen(8080);
 
 // const express = require('express');
 // const bodyParser = require('body-parser');

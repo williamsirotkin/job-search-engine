@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function addCompany(name, sector) {
     axios({
-        url: "http://localhost:3001/addCompany", 
+        url: "https://backend-ogxg4b6p6a-ue.a.run.app/addCompany", 
         data: {"company": name, "sector": sector},
         method: "post"
     })
@@ -20,7 +20,7 @@ function addCompany(name, sector) {
 
 function editCompany(oldName, newName, sector) {
     axios({
-        url: "http://localhost:3001/createModifiedCompany", 
+        url: "https://backend-ogxg4b6p6a-ue.a.run.app/createModifiedCompany", 
         data: {"oldName": oldName, "newName": newName, "sector": sector},
         method: "post"
     })
