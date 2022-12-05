@@ -1,4 +1,4 @@
-Website: www.collegejobsearchengine.com
+Website: collegejobsearchengine.com
 
 To Run:
 
