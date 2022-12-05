@@ -17,11 +17,13 @@ function Login(props) {
     const location = useLocation();
     let navigate = useNavigate()
     const [ profile, setProfile ] = useState([]);
-    const clientId = '386932037035-k8v833noqjk7m4auae0t83vnkrqvvg3t.apps.googleusercontent.com';
+    const clientId = '204881199455-v8tlcip6v3hede3d036e6ft7t7u77isk.apps.googleusercontent.com';
     useEffect(() => {
         const initClient = () => {
             let auth2 = gapi.auth2.init({
                 clientId: clientId,
+                //ux_mode: 'redirect',
+               // redirect_uri: 'https://job-search-engine-368221.firebaseapp.com/signin-google',
                 scope: ''
             });
             if (profile && profile.email) {
@@ -89,11 +91,11 @@ function Login(props) {
             <img src = {require('../images/logo.png')} alt = "logo" class = "logo"/>
             <div></div>
             <h1 class = "title"> Job Search Engine </h1>
-            <h3> Welcome {profile.name.substring(0, profile.name.indexOf(" "))} </h3>
-            <div>
-                <Link to = "/" class = "login">
+            <h3 class = "name"> Welcome {profile.name.substring(0, profile.name.indexOf(" "))} </h3>
+            <div class = "login">
+                <Link to = "/">
                         <div>
-                            <GoogleLogout to = "/" clientId={clientId} onLogoutSuccess={logOut} />
+                            <GoogleLogout to = "/" buttonText = "Logout" clientId={clientId} onLogoutSuccess={logOut} />
                         </div>
                 </Link>
             </div>
@@ -109,9 +111,10 @@ function Login(props) {
             <div></div>
             <h1 class = "title">Job Search Engine</h1>
             <div></div>
-            <div>
-                <Link to = "/" class = "login">
+            <div class = "login">
+                <Link to = "/">
                     <GoogleLogin
+                        buttonText="Google Login"
                         clientId={clientId}
                         onSuccess={onSuccess}
                         onFailure={onFailure}

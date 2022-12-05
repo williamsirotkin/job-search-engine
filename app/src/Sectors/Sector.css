@@ -169,3 +169,55 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
+
+.navBar {
+    display: grid;
+	place-items: center;
+	grid-template-columns: 10% 30% 20% 15% 15% 10%;
+	grid-template-rows: 100px;
+	background-color: lightskyblue;
+	color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .jobContainer  {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .navBar {
+		display: grid;
+		place-items: center;
+		grid-template-columns: 20% 10% 0% 10% 35% 25%;
+		grid-template-rows: 100px;
+		background-color: lightskyblue;
+		color: white;
+	}
+
+  .name {
+    font-size: 0px;
+  }
+
+  .add-company > button {
+    width: 15%;
+    background-color: rgb(178, 44, 44);
+    text-align: center;
+    color: white;
+    font-size: 3vw;
+  }
+
+  .go-back {
+    padding: 3%;
+    background-color: rgb(152, 149, 149);
+    color: white;
+    font-size: 15px;
+  }
+
+  .submit {
+    width: 10%;
+    padding: 3%;
+    color: white;
+    font-size: 15px;
+    background-color: rgb(55, 144, 216);
+  }
+}
